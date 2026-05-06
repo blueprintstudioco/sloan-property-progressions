@@ -162,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.8;
 }
 
-/* Make older generated templates feel less rounded/SaaS without touching every JSON page. */
+/* Keep generated local pages aligned with the Sloan visual system. */
 .bg-secondary { background-color: #334D2B !important; }
 .bg-muted { background-color: #F2EBDF !important; }
 .rounded-xl, .rounded-lg { border-radius: .125rem !important; }

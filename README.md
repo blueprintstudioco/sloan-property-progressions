@@ -1,6 +1,6 @@
 # Sloan Property Progressions
 
-Astro website for Sloan Property Progressions, adapted from the Northeast Texas land clearing template.
+Astro website for Sloan Property Progressions.
 
 ## Commands
 

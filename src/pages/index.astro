@@ -4,64 +4,81 @@ import Header from '../components/Header';
 import Footer from '../components/Footer.astro';
 import FAQ from '../components/FAQ';
 
-const problemCards = [
-  { title: 'I can’t walk my land', copy: 'Yaupon, privet, cedar, vines, and pine saplings have swallowed the understory.', image: '/images/netx/homepage/brush-clearing.jpg', href: '/services/brush-clearing' },
-  { title: 'My fence row disappeared', copy: 'Old wire, gates, corners, and property lines are buried under brush and limbs.', image: '/images/netx/services/fence-line-clearing.jpg', href: '/services/fence-line-clearing' },
-  { title: 'I need hunting access', copy: 'Open UTV trails, stand routes, shooting lanes, food plot access, and back-acreage routes.', image: '/images/netx/homepage/trail-clearing.jpg', href: '/services/trail-clearing' },
-  { title: 'I bought land and need a reset', copy: 'Make neglected or inherited acreage visible, accessible, and easier to plan around.', image: '/images/netx/homepage/acreage-cleanup.jpg', href: '/services/acreage-cleanup' },
-  { title: 'I’m prepping a homesite', copy: 'Clear the practical opening for a cabin, barndominium, shop, barn, driveway, or utilities.', image: '/images/netx/homepage/site-preparation.jpg', href: '/services/site-preparation' },
-  { title: 'I need brush mulched, not piled', copy: 'Reduce brush in place into a cleaner mulch layer instead of creating burn piles and haul-off chaos.', image: '/images/netx/services/forestry-mulching.jpg', href: '/services/forestry-mulching' },
+const pathways = [
+  {
+    title: 'Access',
+    eyebrow: 'Get back in',
+    copy: 'Open trails, gates, fence rows, and working routes so the property is usable again.',
+    image: '/images/netx/homepage/trail-clearing.jpg',
+    href: '/services/trail-clearing',
+  },
+  {
+    title: 'Reclaim',
+    eyebrow: 'Recover value',
+    copy: 'Thin the invasive understory, reveal keeper trees, and turn neglected acreage into ground you can manage.',
+    image: '/images/netx/homepage/acreage-cleanup.jpg',
+    href: '/services/acreage-cleanup',
+  },
+  {
+    title: 'Prepare',
+    eyebrow: 'Set up the next phase',
+    copy: 'Create practical openings for homesites, barns, driveways, food plots, utilities, and future improvements.',
+    image: '/images/netx/homepage/site-preparation.jpg',
+    href: '/services/site-preparation',
+  },
 ];
 
-const serviceCards = [
-  { title: 'Rural Land Clearing', eyebrow: 'Overgrown acreage', copy: 'Selective clearing for ranches, homesites, pasture edges, and rural lots that need usable ground again.', href: '/services/land-clearing', bestFor: 'Acreage resets, ranch work, rural lots' },
-  { title: 'Forestry Mulching', eyebrow: 'Brush into mulch', copy: 'Machine-forward clearing for yaupon, privet, cedar, vines, saplings, trails, and fence rows.', href: '/services/forestry-mulching', bestFor: 'Thick brush, saplings, low-impact cleanup' },
-  { title: 'Fence Line Clearing', eyebrow: 'Recover the boundary', copy: 'Open property lines, old fence rows, gates, easements, and boundary corridors for repair or new fence work.', href: '/services/fence-line-clearing', bestFor: 'Fence repair, new wire, gates, access' },
-  { title: 'Hunting Trails & Access', eyebrow: 'Get through the property', copy: 'UTV trails, stand routes, equipment lanes, food plot access, and practical routes through wooded acreage.', href: '/services/trail-clearing', bestFor: 'Hunting land, UTV paths, stand access' },
-  { title: 'Acreage Reclamation', eyebrow: 'Make it usable again', copy: 'Reset neglected, storm-damaged, newly purchased, or inherited land so you can see and use it again.', href: '/services/acreage-cleanup', bestFor: 'Neglected land, storm mess, inherited property' },
-  { title: 'Homesite & Site Prep', eyebrow: 'Clear the opening', copy: 'Clear openings and access for cabins, barndominiums, shops, barns, driveways, utilities, and staging.', href: '/services/site-preparation', bestFor: 'Homesites, drives, shops, barns' },
+const planningSteps = [
+  ['01', 'Walk the goal', 'We start with what the property needs to become — access, visibility, hunting routes, fence repair, homesite prep, or a cleaner long-term maintenance plan.'],
+  ['02', 'Mark what matters', 'Keeper trees, shade, screening, property lines, drainage, access points, and sensitive areas shape the clearing plan.'],
+  ['03', 'Clear with restraint', 'Brush and invasive growth come out. Useful structure stays. The result should feel opened up, not stripped bare.'],
+  ['04', 'Leave a maintainable finish', 'The job is scoped around what happens after the machine leaves: mowing, fencing, trails, pasture edges, access, and next-phase work.'],
 ];
 
-const beforeAfterCards = [
-  { title: 'Acreage Cleanup', copy: 'Turn choked understory into land you can walk, see, and plan around.', image: '/images/netx/before-after/acreage-cleanup.jpg' },
-  { title: 'Fence Line Clearing', copy: 'Recover gates, corners, wire, and boundary access without wiping out every tree.', image: '/images/netx/before-after/fence-line-clearing.jpg' },
-  { title: 'Trail & Hunting Access', copy: 'Open practical UTV routes, stand access, and back-acreage trails through thick growth.', image: '/images/netx/before-after/trail-clearing.jpg' },
+const services = [
+  { title: 'Forestry Mulching', copy: 'Process brush and saplings in place into a cleaner mulch layer.', href: '/services/forestry-mulching' },
+  { title: 'Trail Cutting', copy: 'Open UTV, hunting, equipment, and walking access routes.', href: '/services/trail-clearing' },
+  { title: 'Fence Line Clearing', copy: 'Recover gates, corners, easements, and boundary access.', href: '/services/fence-line-clearing' },
+  { title: 'Acreage Cleanup', copy: 'Reset overgrown, inherited, neglected, or storm-damaged ground.', href: '/services/acreage-cleanup' },
+  { title: 'Homesite Prep', copy: 'Clear usable openings for cabins, shops, barns, driveways, and utilities.', href: '/services/site-preparation' },
+  { title: 'Rural Land Clearing', copy: 'Selective clearing for ranches, wooded lots, pasture edges, and rural property work.', href: '/services/land-clearing' },
 ];
 
-const videoSlides = [
-  { label: 'Forestry Mulching', title: 'Mulching thick East Texas brush', src: '/videos/netx/slider/forestry-mulching.mp4', poster: '/images/netx/services/forestry-mulching.jpg' },
-  { label: 'Land Clearing', title: 'Opening acreage with the TL12 V2', src: '/videos/netx/slider/land-clearing.mp4', poster: '/images/netx/homepage/land-clearing.jpg' },
-  { label: 'Fence Lines & Trails', title: 'Cutting access through heavy growth', src: '/videos/netx/slider/trails-fence-lines.mp4', poster: '/images/netx/services/fence-line-clearing.jpg' },
-  { label: 'Brush Clearing', title: 'Turning thickets into usable ground', src: '/videos/netx/slider/brush-clearing.mp4', poster: '/images/netx/homepage/brush-clearing.jpg' },
-  { label: 'Finished Ground', title: 'A cleaner property after the pass', src: '/videos/netx/slider/finished-ground.mp4', poster: '/images/netx/homepage/acreage-cleanup.jpg' },
+const fieldNotes = [
+  {
+    title: 'Open the path before you open the whole property.',
+    copy: 'A trail-first approach often reveals what actually needs clearing and avoids wasting money on areas that do not matter yet.',
+    image: '/images/netx/before-after/trail-clearing.jpg',
+  },
+  {
+    title: 'Preserve the good trees. Remove the pressure.',
+    copy: 'The best rural properties keep shade, character, and screening while removing the brush layer that blocks access and visibility.',
+    image: '/images/netx/services/forestry-mulching-before-after/acreage-understory.jpg',
+  },
+  {
+    title: 'Plan the finish around maintenance.',
+    copy: 'A clean clearing job should make mowing, fencing, hunting access, or construction easier months after the machine leaves.',
+    image: '/images/netx/before-after/acreage-cleanup.jpg',
+  },
 ];
 
-const processVideos = [
-  { id: 'zTuaiZSM-Q0', title: 'From Lead to Cleared Land', eyebrow: 'Process', copy: 'How a professional land-clearing job moves from first contact to finished ground.' },
-  { id: 'TUKDq71bvss', title: 'How We Price Jobs the Right Way', eyebrow: 'Clear pricing', copy: 'The quoting mindset behind clear project pricing instead of hourly guessing.' },
-  { id: '5Obq-ijaUgs', title: 'Takeuchi TL12 V2 In Action', eyebrow: 'Equipment standard', copy: 'The kind of forestry mulching equipment and jobsite capability behind the professional land-clearing standard.' },
-];
-
-const quoteSteps = [
-  ['01', 'Send the property', 'Address or parcel link, rough acreage, and photos/video of the worst areas.'],
-  ['02', 'Define the outcome', 'Tell us if you need fence access, trails, pasture recovery, homesite prep, or a general reset.'],
-  ['03', 'Get a clear scope', 'We confirm access, keeper trees, finish expectations, and what happens after the machine leaves.'],
+const videoNotes = [
+  { id: 'zTuaiZSM-Q0', title: 'From Lead to Cleared Land', copy: 'What a professional clearing process looks like from first conversation to finished ground.' },
+  { id: 'TUKDq71bvss', title: 'Pricing the Right Way', copy: 'Why a clear scope beats guessing at open-ended hourly machine time.' },
 ];
 
 const faqItems = [
-  { question: 'How much does land clearing cost in Northeast Texas?', answer: 'Pricing depends on acreage, brush density, terrain, access, machine fit, and the finish you want. Send the address or parcel link with photos/video and we can usually point you toward the right scope quickly.' },
-  { question: 'Do you charge hourly or by the project?', answer: 'Most customers want a clear project price, not open-ended machine time. We look at the property, define the outcome, and quote the scope so you know what the job is expected to cost before work starts.' },
-  { question: 'What does forestry mulching leave behind?', answer: 'Brush, saplings, and small growth are processed in place into a mulch layer. That usually means less hauling, fewer burn piles, and a cleaner finish than cut-and-pile clearing.' },
-  { question: 'How long does a typical project take?', answer: 'Many smaller acreage, trail, fence-line, or homesite jobs can be completed in a day. Larger tracts, heavy density, wet ground, difficult access, or very specific finish expectations may take longer.' },
-  { question: 'Can you clear selectively without wiping out every tree?', answer: 'Yes. A lot of landowners want access and visibility without turning the place into a parking lot. We can work around keeper trees, shade, screening, gates, property lines, and the parts of the land you want preserved.' },
-  { question: 'What should I send to get an estimate?', answer: 'Send the property address or parcel link, rough acreage or linear footage, photos/video of the thickest areas, access notes, and what you want the land to become: fence access, hunting trails, pasture edge, homesite, cleanup, or general reset.' },
+  { question: 'How is Sloan different from a basic clearing contractor?', answer: 'The work is scoped around the next use of the property. Access, keeper trees, future maintenance, fence lines, trails, drainage, and finish expectations all matter before the machine starts.' },
+  { question: 'Can you clear selectively?', answer: 'Yes. Many properties need the brush layer removed while preserving shade, screening, mature trees, and the natural character of the land.' },
+  { question: 'Do you offer instant pricing?', answer: 'Yes. The instant pricing calculator gives a fast ballpark for forestry mulching and trail cutting. Final quotes are confirmed after property review.' },
+  { question: 'What should I send for a quote?', answer: 'Send the property address or parcel link, photos or video of the worst areas, rough acreage or trail length, and what you want the property to become.' },
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   name: 'Sloan Property Progressions',
-  description: 'Forestry mulching, brush clearing, fence-line clearing, acreage cleanup, and land prep across Northeast Texas.',
+  description: 'Selective forestry mulching, trail cutting, fence-line clearing, acreage cleanup, and rural property preparation across Northeast Texas.',
   url: 'https://sloanpropertyprogressions.com',
   email: 'quotes@sloanpropertyprogressions.com',
   areaServed: ['Tyler TX', 'Longview TX', 'Texarkana TX', 'Marshall TX', 'Mount Pleasant TX', 'Sulphur Springs TX', 'East Texas', 'Northeast Texas'],
@@ -69,58 +86,43 @@ const schema = {
 };
 ---
 
-<Layout title="Sloan Property Progressions | Forestry Mulching & Brush Clearing" description="Problem-first forestry mulching, brush clearing, fence-line clearing, hunting trails, acreage cleanup, and rural site prep across Northeast Texas." schema={schema}>
+<Layout title="Sloan Property Progressions | Rural Property Clearing & Forestry Mulching" description="Selective forestry mulching, trail cutting, fence-line clearing, acreage cleanup, and rural property preparation across Northeast Texas." schema={schema}>
   <Header client:load />
 
-  <main class="bg-[#334D2B] text-white overflow-hidden">
-    <section class="relative md:min-h-[84vh] flex items-center pt-24 pb-12 md:pb-14 overflow-hidden">
-      <div class="absolute inset-0">
-        <img src="/images/netx/hero/takeuchi-field-montage-poster.jpg" alt="Takeuchi forestry mulcher clearing Northeast Texas acreage" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
-        <video class="absolute inset-0 hidden md:block w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="/images/netx/hero/takeuchi-field-montage-poster.jpg" aria-hidden="true">
-          <source src="/videos/netx/hero/takeuchi-field-montage.mp4" type="video/mp4" media="(min-width: 768px)" />
-        </video>
-        <div class="absolute inset-0 bg-black/35"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(90deg,#334D2B_0%,rgba(51,77,43,0.88)_44%,rgba(51,77,43,0.18)_100%)]"></div>
-        <div class="absolute inset-0 netx-grid opacity-20"></div>
-      </div>
+  <main class="bg-[#F2EBDF] text-[#1E2A1B] overflow-hidden">
+    <section class="relative min-h-[92vh] pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+      <div class="absolute inset-0 netx-topo opacity-35"></div>
+      <div class="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-[#F37121]/10 blur-3xl"></div>
+      <div class="absolute left-0 bottom-0 h-48 w-full bg-gradient-to-t from-[#F2EBDF] to-transparent"></div>
 
-      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_400px] gap-10 lg:gap-14 items-center">
-          <div class="max-w-4xl">
-            <div class="flex items-center gap-3 mb-4">
-              <img src="/assets/spp-logo.png" alt="Sloan Property Progressions emblem" class="h-14 w-14 object-contain drop-shadow-xl lg:hidden" />
-              <p class="kicker">Northeast Texas land clearing</p>
-            </div>
-            <h1 class="font-[Rajdhani] font-bold uppercase leading-[0.9] tracking-tight text-[3.15rem] min-[420px]:text-6xl sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-2xl break-words">
-              Progress Your Property.<br />
-              <span class="text-[#F37121]">Clear The Way Forward.</span>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,0.72fr)] gap-12 lg:gap-16 items-center">
+          <div>
+            <p class="kicker mb-5">Rural property progression</p>
+            <h1 class="font-[Rajdhani] font-bold uppercase leading-[0.88] tracking-tight text-[3.45rem] min-[420px]:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#334D2B]">
+              Open The Land.<br />
+              <span class="text-[#F37121]">Keep Its Character.</span>
             </h1>
-
-            <p class="mt-7 max-w-2xl text-lg md:text-2xl text-zinc-200 leading-relaxed">
-              Yaupon, privet, cedar, vines, pine understory, fence rows, hunting trails, pasture edges, storm cleanup, and rural homesites — cleared around the outcome you actually need.
+            <p class="mt-7 max-w-2xl text-xl md:text-2xl leading-relaxed text-[#334D2B]/85">
+              Selective forestry mulching, trails, fence-line access, and acreage cleanup for landowners who want progress — not a property scraped bare.
             </p>
-
-            <div class="mt-7 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl">
-              {['Ranch acreage', 'Hunting land', 'Fence rows', 'Homesite prep'].map((item) => (
-                <div class="border border-white/15 bg-black/35 backdrop-blur-sm px-4 py-3 font-[Rajdhani] uppercase font-bold tracking-wide text-sm text-[#F2EBDF]">{item}</div>
-              ))}
-            </div>
-
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
-              <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#F37121] text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#ff8436] transition shadow-[0_0_35px_rgba(243,113,33,0.28)]">Get a Property Quote</a>
-              <a href="/get-a-quote" class="inline-flex items-center justify-center border-2 border-white/80 text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-white hover:text-[#334D2B] transition">Send Photos For Estimate</a>
+              <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-[#F2EBDF] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#1E2A1B] transition">Plan My Property</a>
+              <a href="/instant-pricing" class="inline-flex items-center justify-center border-2 border-[#F37121] text-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#F37121] hover:text-white transition">Instant Pricing</a>
             </div>
           </div>
 
-          <div class="hidden lg:block justify-self-end w-full max-w-[400px]">
-            <div class="relative rounded-[2rem] border border-white/15 bg-[#334D2B]/60 p-6 xl:p-8 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-md overflow-hidden">
-              <div class="absolute inset-0 netx-grid opacity-20"></div>
-              <div class="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#F37121]/20 blur-3xl"></div>
-              <div class="relative">
-                <img src="/assets/spp-logo.png" alt="Sloan Property Progressions emblem" class="mx-auto w-full max-w-[285px] xl:max-w-[330px] object-contain drop-shadow-2xl" />
-                <div class="mt-6 border-t border-white/10 pt-5">
-                  <p class="font-[Rajdhani] text-2xl font-bold uppercase tracking-wide text-[#F2EBDF]">Local land. Practical clearing.</p>
-                  <p class="mt-2 text-sm leading-relaxed text-zinc-300">Built for ranches, hunting properties, fence rows, rural homesites, and overgrown acreage across Northeast Texas.</p>
+          <div class="relative">
+            <div class="absolute -left-8 -top-8 h-full w-full border-2 border-[#334D2B]/20"></div>
+            <div class="relative bg-[#334D2B] p-4 shadow-[0_35px_90px_rgba(30,42,27,0.25)]">
+              <img src="/images/netx/forestry-mulching-hero.png" alt="Selective forestry mulching on rural land" class="h-[540px] w-full object-cover" fetchpriority="high" />
+              <div class="absolute inset-x-4 bottom-4 bg-[#F2EBDF]/95 p-5 md:p-6 border-l-4 border-[#F37121] shadow-xl">
+                <div class="flex items-start gap-4">
+                  <img src="/assets/spp-emblem.png" alt="" class="h-14 w-14 object-contain" loading="lazy" />
+                  <div>
+                    <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-[#F37121]">Property note</p>
+                    <p class="mt-1 text-lg font-semibold text-[#334D2B] leading-snug">The goal is usable land that still feels like your land.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,199 +131,92 @@ const schema = {
       </div>
     </section>
 
-    <section class="relative border-y border-white/10 bg-[#1E2A1B] overflow-hidden">
-      <div class="absolute inset-0 netx-grid opacity-10"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-7">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {[
-            ['$', 'Clear Pricing', 'Know the cost before the machine shows up.'],
-            ['◒', 'Selective Clearing', 'Open the land without wiping out every good tree.'],
-            ['✓', 'Certified Standard', 'Backed by the professional land-clearing standard.'],
-            ['texas', 'Built For East Texas', 'Yaupon, privet, cedar, pine, clay, rain.'],
-          ].map(([icon, item, copy]) => (
-            <div class="group flex min-h-[132px] items-start gap-4 border border-white/10 bg-white/[0.035] p-5 shadow-lg transition hover:-translate-y-0.5 hover:border-[#F37121]/50 hover:bg-white/[0.06]">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-[#F37121] font-[Rajdhani] text-xl font-bold text-white shadow-[0_0_28px_rgba(243,113,33,0.25)]">
-                {icon === 'texas' ? (
-                  <img src="/assets/icons/texas-silhouette.png" alt="" class="h-8 w-8 object-contain" loading="lazy" />
-                ) : icon}
-              </div>
-              <div>
-                <div class="font-[Rajdhani] text-2xl font-bold uppercase leading-none text-[#F2EBDF] group-hover:text-white transition">{item}</div>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">{copy}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-28 bg-[#1E2A1B] text-white relative overflow-hidden">
-      <div class="absolute inset-0 netx-grid opacity-15"></div>
-      <div class="absolute -left-24 top-20 h-64 w-64 rounded-full bg-[#F37121]/10 blur-3xl"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-          <div class="max-w-3xl">
-            <p class="kicker mb-3">Before / after</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">From Overgrown To Usable.</h2>
-            <p class="mt-5 text-lg text-zinc-300">Landowners do not buy machine time. They buy access, visibility, fence lines, trails, cleaner ground, and a property that finally makes sense again.</p>
-          </div>
-          <a href="/portfolio" class="inline-flex items-center justify-center border border-white/30 px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide text-[#F2EBDF] hover:bg-white hover:text-[#334D2B] transition">See More Work</a>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-6">
-          {beforeAfterCards.map((card) => (
-            <article class="group overflow-hidden border border-white/10 bg-[#334D2B] shadow-2xl">
-              <div class="relative aspect-[16/9] overflow-hidden">
-                <img src={card.image} alt={`${card.title} before and after land clearing`} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-                <div class="absolute inset-y-0 left-1/2 w-px bg-white/80 shadow-[0_0_18px_rgba(255,255,255,0.75)]"></div>
-                <div class="absolute left-3 top-3 bg-black/70 px-3 py-1 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white backdrop-blur-sm">Before</div>
-                <div class="absolute right-3 top-3 bg-[#F37121] px-3 py-1 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white shadow-lg">After</div>
-              </div>
-              <div class="p-6">
-                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase tracking-wide text-[#F2EBDF]">{card.title}</h3>
-                <p class="mt-2 leading-relaxed text-zinc-400">{card.copy}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-28 bg-[#F2EBDF] text-[#334D2B]" id="services">
+    <section class="py-16 md:py-24 bg-[#F2EBDF]">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mb-12">
-          <p class="kicker mb-3 text-[#334D2B]">What problem are you trying to solve?</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">Good Clearing Starts Before The Machine Starts.</h2>
-          <p class="mt-5 text-lg text-zinc-700">A hunting tract, fence line, ranch gate, pasture edge, homesite, and storm-damaged property all need different decisions. Start with the problem. Clear for the outcome.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {problemCards.map((card, index) => (
-            <a href={card.href} class="group relative flex min-h-[360px] overflow-hidden border border-black/10 bg-[#334D2B] shadow-2xl transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(51,77,43,0.32)]">
-              <img src={card.image} alt={card.title} class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#334D2B] via-[#334D2B]/62 to-black/15"></div>
-              <div class="absolute inset-0 bg-[#334D2B]/10 transition group-hover:bg-[#F37121]/10"></div>
-              <div class="relative mt-auto flex min-h-[230px] w-full flex-col justify-end p-6 md:p-7 text-white">
-                <div class="mb-5 flex items-center justify-between">
-                  <span class="bg-[#F37121] px-3 py-1 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white">Problem {String(index + 1).padStart(2, '0')}</span>
-                  <span class="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-black/30 text-white backdrop-blur-sm transition group-hover:translate-x-1 group-hover:bg-[#F37121] group-hover:border-[#F37121]">→</span>
-                </div>
-                <h3 class="font-[Rajdhani] uppercase font-bold text-4xl leading-none text-[#F2EBDF] drop-shadow-lg">{card.title}</h3>
-                <p class="mt-4 min-h-[72px] leading-relaxed text-zinc-200">{card.copy}</p>
-                <span class="mt-5 inline-flex border-t border-white/15 pt-4 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white/90 group-hover:text-[#F2EBDF]">See the clearing plan</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="py-20 md:py-28 bg-[#334D2B] relative">
-      <div class="absolute inset-0 netx-topo opacity-20"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-          <div>
-            <p class="kicker mb-3">Proof you can see</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">Watch The Brush Turn Into Usable Ground.</h2>
+        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
+          <div class="sticky top-28">
+            <p class="kicker mb-3">Three ways land gets stuck</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Every Property Has A Next Step.</h2>
+            <p class="mt-5 text-lg text-[#334D2B]/75 leading-relaxed">Some land needs access. Some needs a reset. Some needs preparation for what comes next. The right scope starts with the outcome.</p>
           </div>
-          <p class="max-w-xl text-zinc-400 text-lg">The machine matters, but only because of the result: cleaner access, better visibility, manageable trails, opened fence rows, and land you can actually use.</p>
-        </div>
-
-        <div class="video-rail flex gap-5 overflow-x-auto snap-x snap-mandatory pb-5 max-w-full">
-          {videoSlides.map((slide) => (
-            <article class="snap-start shrink-0 w-[82vw] max-w-[520px] group relative overflow-hidden border border-white/10 bg-[#1E2A1B] shadow-2xl">
-              <div class="aspect-video relative overflow-hidden">
-                <video class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" autoplay muted loop playsinline poster={slide.poster} preload="metadata">
-                  <source src={slide.src} type="video/mp4" />
-                </video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-                <div class="absolute top-4 left-4 bg-[#F37121] text-white font-[Rajdhani] font-bold uppercase tracking-wide px-3 py-1 text-sm">{slide.label}</div>
-                <h3 class="absolute bottom-5 left-5 right-5 font-[Rajdhani] uppercase font-bold text-3xl md:text-4xl leading-none">{slide.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-28 bg-[#334D2B] text-white relative overflow-hidden">
-      <div class="absolute inset-0 netx-topo opacity-20"></div>
-      <div class="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#F37121]/15 blur-3xl"></div>
-      <div class="absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#334D2B]/50 blur-3xl"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12 grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8 lg:gap-14 items-end">
-          <div>
-            <p class="kicker mb-3">Services</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none max-w-4xl">Start With What You Need Cleared.</h2>
-            <p class="mt-5 max-w-3xl text-lg md:text-xl leading-relaxed text-zinc-300">Pick the closest job type. We’ll help translate messy acreage, fence rows, trails, and homesites into a clear scope before the machine shows up.</p>
-          </div>
-          <div class="border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
-            <p class="font-[Rajdhani] text-2xl font-bold uppercase text-[#F2EBDF]">Not sure what to choose?</p>
-            <p class="mt-2 text-sm leading-relaxed text-zinc-400">Send photos, parcel link, or a quick video. We’ll point you toward the right clearing plan.</p>
-            <a href="/get-a-quote" class="mt-5 inline-flex w-full items-center justify-center bg-[#F37121] px-5 py-3 font-[Rajdhani] font-bold uppercase tracking-wide text-white hover:bg-[#ff8436] transition">Send Photos For Estimate</a>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-px overflow-hidden border border-white/10 bg-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
-          {serviceCards.map((service, index) => (
-            <a href={service.href} class="group relative min-h-[290px] bg-[#1E2A1B] p-7 md:p-8 transition hover:bg-[#162b21]">
-              <div class="absolute right-6 top-4 font-[Rajdhani] text-8xl font-bold leading-none text-white/[0.035] transition group-hover:text-[#F37121]/15">{String(index + 1).padStart(2, '0')}</div>
-              <div class="relative flex h-full flex-col">
-                <p class="mb-4 inline-flex w-fit bg-[#F37121] px-3 py-1 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white">{service.eyebrow}</p>
-                <h3 class="font-[Rajdhani] text-4xl font-bold uppercase leading-none text-[#F2EBDF] transition group-hover:text-white">{service.title}</h3>
-                <p class="mt-4 leading-relaxed text-zinc-300">{service.copy}</p>
-                <div class="mt-6 border-l-2 border-[#F37121] pl-4 text-sm text-zinc-400">
-                  <span class="block font-[Rajdhani] font-bold uppercase tracking-wide text-[#F37121]">Best for</span>
-                  {service.bestFor}
+          <div class="space-y-6">
+            {pathways.map((path, index) => (
+              <a href={path.href} class="group grid md:grid-cols-[190px_minmax(0,1fr)] gap-0 bg-white border border-[#334D2B]/10 shadow-lg hover:shadow-2xl transition overflow-hidden">
+                <div class="relative h-56 md:h-full min-h-[190px] overflow-hidden">
+                  <img src={path.image} alt="" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading={index === 0 ? 'eager' : 'lazy'} />
+                  <div class="absolute inset-0 bg-[#334D2B]/10"></div>
                 </div>
-                <div class="mt-auto flex items-center justify-between border-t border-white/10 pt-5">
-                  <span class="font-[Rajdhani] font-bold uppercase tracking-wide text-white">View service</span>
-                  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#334D2B] transition group-hover:translate-x-1 group-hover:bg-[#F37121] group-hover:text-white">→</span>
+                <div class="p-6 md:p-8 flex flex-col justify-center">
+                  <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.2em] text-[#F37121]">{path.eyebrow}</p>
+                  <h3 class="mt-2 font-[Rajdhani] text-4xl font-bold uppercase text-[#334D2B]">{path.title}</h3>
+                  <p class="mt-3 text-[#334D2B]/75 leading-relaxed">{path.copy}</p>
+                  <span class="mt-5 font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B] group-hover:text-[#F37121]">Explore this path →</span>
                 </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-28 bg-[#334D2B] text-white relative">
-      <div class="absolute inset-0 netx-topo opacity-25"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="kicker mb-3">Built for Northeast Texas brush</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-6">East Texas Brush Is A Different Animal.</h2>
-          <p class="text-zinc-300 text-lg leading-relaxed mb-6">This market is rural and acreage-driven. The problems are bigger tracts, thicker pine understory, yaupon, privet, cedar, vines, old fence rows, hunting access, ranch gates, pasture edges, storm debris, sandy soil, clay, and heavy rain. The right answer is not always “clear everything.”</p>
-          <ul class="space-y-3 text-zinc-300">
-            <li>• Clear around the actual use: hunting, fencing, homesite access, pasture recovery, or property cleanup.</li>
-            <li>• Protect keeper trees, shade, screening, wildlife cover, gates, and sensitive areas.</li>
-            <li>• Leave a finish the landowner can maintain instead of a short-term machine path and long-term mess.</li>
-          </ul>
-          <a href="/get-a-quote" class="mt-8 inline-flex items-center justify-center bg-[#F37121] text-white px-7 py-3 font-[Rajdhani] font-bold uppercase tracking-wide hover:bg-[#ff8436] transition">Request a Site Review</a>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <img src="/images/netx/homepage/brush-clearing.jpg" alt="Opened East Texas brush understory" class="w-full h-full object-cover border border-white/10" />
-          <img src="/images/netx/homepage/trail-clearing.jpg" alt="Cleared hunting access trail" class="w-full h-full object-cover border border-white/10 mt-10" />
-          <img src="/images/netx/homepage/site-preparation.jpg" alt="Cleared rural homesite opening" class="w-full h-full object-cover border border-white/10 -mt-10" />
-          <img src="/images/netx/services/forestry-mulching.jpg" alt="Forestry mulching work in Northeast Texas" class="w-full h-full object-cover border border-white/10" />
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 md:py-28 bg-[#F2EBDF] text-[#334D2B]">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
-        <div>
-          <p class="kicker mb-3 text-[#334D2B]">How quotes work</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-5">Send The Property. Get A Clear Scope.</h2>
-          <p class="text-lg text-zinc-700 mb-8">The fastest way to quote is simple: address, photos, acreage or footage, what needs cleared, and what should stay protected.</p>
-          <div class="space-y-4">
-            {quoteSteps.map(([num, title, copy]) => (
-              <div class="flex gap-4 border-l-4 border-[#F37121] bg-white p-5 shadow-lg"><div class="font-[Rajdhani] text-4xl font-bold text-[#F37121]">{num}</div><div><h3 class="font-[Rajdhani] uppercase font-bold text-2xl">{title}</h3><p class="text-zinc-700">{copy}</p></div></div>
+              </a>
             ))}
           </div>
         </div>
-        <FAQ items={faqItems} client:load />
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#334D2B] text-[#F2EBDF] relative overflow-hidden">
+      <div class="absolute inset-0 netx-topo opacity-20"></div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <p class="kicker mb-3">The Sloan method</p>
+          <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">Clear With A Plan.</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/15 border border-white/15">
+          {planningSteps.map(([num, title, copy]) => (
+            <div class="bg-[#334D2B]/95 p-7 min-h-[280px]">
+              <div class="font-[Rajdhani] text-5xl font-bold text-[#F37121]">{num}</div>
+              <h3 class="mt-8 font-[Rajdhani] text-3xl font-bold uppercase leading-none">{title}</h3>
+              <p class="mt-4 text-[#F2EBDF]/75 leading-relaxed">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F2EBDF]">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+          <div class="relative order-2 lg:order-1">
+            <div class="absolute -right-6 -bottom-6 h-full w-full bg-[#334D2B]"></div>
+            <img src="/images/netx/services/fence-line-clearing.jpg" alt="Recovered rural fence line" class="relative h-[520px] w-full object-cover shadow-2xl" loading="lazy" />
+          </div>
+          <div class="order-1 lg:order-2">
+            <p class="kicker mb-3">Before the quote</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">We Decide What Should Stay.</h2>
+            <p class="mt-6 text-lg text-[#334D2B]/75 leading-relaxed">Before clearing starts, the plan should identify what is worth protecting, what needs opened, and how the finished property should function when the work is done.</p>
+            <div class="mt-8 grid sm:grid-cols-2 gap-4">
+              {['Keeper trees', 'Property lines', 'Trails & access', 'Future maintenance'].map((item) => (
+                <div class="border border-[#334D2B]/15 bg-white p-5 font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] shadow-sm">{item}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div class="max-w-3xl">
+            <p class="kicker mb-3">Services</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Practical Work. Planned Finish.</h2>
+          </div>
+          <a href="/services/forestry-mulching" class="inline-flex items-center justify-center border-2 border-[#334D2B] px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B] hover:bg-[#334D2B] hover:text-white transition">View services</a>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#334D2B]/15 border border-[#334D2B]/15">
+          {services.map((service) => (
+            <a href={service.href} class="group bg-white p-7 min-h-[230px] hover:bg-[#F2EBDF] transition">
+              <h3 class="font-[Rajdhani] text-3xl font-bold uppercase text-[#334D2B] group-hover:text-[#F37121] transition">{service.title}</h3>
+              <p class="mt-4 text-[#334D2B]/70 leading-relaxed">{service.copy}</p>
+              <span class="mt-8 inline-block font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B]">Learn more →</span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -334,9 +229,7 @@ const schema = {
           <div>
             <p class="kicker mb-3">Certified Process Operator</p>
             <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none">Backed By The Brushworks Standard.</h2>
-            <p class="mt-4 text-lg text-zinc-300 leading-relaxed max-w-3xl">
-              Independent local operator. Reviewed for equipment fit, clear scope, communication, and the ability to deliver cleaner land-clearing outcomes.
-            </p>
+            <p class="mt-4 text-lg text-zinc-300 leading-relaxed max-w-3xl">Independent local operator. Reviewed for equipment fit, clear scope, communication, and the ability to deliver cleaner land-clearing outcomes.</p>
             <div class="mt-5 flex flex-wrap gap-3 text-sm font-semibold text-zinc-300">
               <span class="border border-white/10 bg-black/25 px-3 py-2">Clear scope</span>
               <span class="border border-white/10 bg-black/25 px-3 py-2">Vetted equipment</span>
@@ -352,37 +245,20 @@ const schema = {
       </div>
     </section>
 
-    <section class="py-20 md:py-28 bg-[#1E2A1B] text-white relative overflow-hidden">
-      <div class="absolute inset-0 netx-grid opacity-15"></div>
-      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
-          <div class="max-w-3xl">
-            <p class="kicker mb-3">Process in the field</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">See How Professional Clearing Works.</h2>
-            <p class="mt-5 text-lg text-zinc-300">These field videos show the quoting, equipment, and jobsite process behind cleaner land-clearing work.</p>
-          </div>
-          <a href="/portfolio" class="inline-flex items-center justify-center border border-white/30 px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide text-[#F2EBDF] hover:bg-white hover:text-[#334D2B] transition">See Project Proof</a>
+    <section class="py-16 md:py-24 bg-[#F2EBDF]">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <p class="kicker mb-3">Field notes</p>
+          <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Proof, Presented Differently.</h2>
+          <p class="mt-5 text-lg text-[#334D2B]/75">A good clearing project is not just before and after. It is what changed, why it mattered, and how the land can be maintained afterward.</p>
         </div>
-
         <div class="grid lg:grid-cols-3 gap-6">
-          {processVideos.map((video) => (
-            <article class="flex h-full flex-col overflow-hidden border border-white/10 bg-[#334D2B] shadow-2xl transition hover:-translate-y-1 hover:border-[#F37121]/50">
-              <button type="button" class="youtube-lite group relative block aspect-video w-full overflow-hidden text-left" data-youtube-id={video.id} aria-label={`Play ${video.title}`}>
-                <img src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} alt={video.title} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" referrerpolicy="no-referrer" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#F37121] text-white shadow-2xl transition group-hover:scale-110">
-                  <span class="ml-1 block h-0 w-0 border-y-[12px] border-l-[18px] border-y-transparent border-l-white"></span>
-                </div>
-                <div class="absolute left-4 top-4 bg-black/70 px-3 py-1 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white backdrop-blur-sm">{video.eyebrow}</div>
-              </button>
-              <div class="flex flex-1 flex-col p-6">
-                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase leading-none text-[#F2EBDF]">{video.title}</h3>
-                <p class="mt-3 leading-relaxed text-zinc-400">{video.copy}</p>
-                <div class="mt-auto pt-5">
-                  <span class="inline-flex w-full items-center justify-between border-t border-white/10 pt-4 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-white">
-                    Watch video <span class="text-[#F37121]">→</span>
-                  </span>
-                </div>
+          {fieldNotes.map((note) => (
+            <article class="bg-white border border-[#334D2B]/10 shadow-lg overflow-hidden">
+              <img src={note.image} alt="" class="h-64 w-full object-cover" loading="lazy" />
+              <div class="p-6">
+                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase leading-none text-[#334D2B]">{note.title}</h3>
+                <p class="mt-4 text-[#334D2B]/70 leading-relaxed">{note.copy}</p>
               </div>
             </article>
           ))}
@@ -390,34 +266,75 @@ const schema = {
       </div>
     </section>
 
-    <section class="py-20 md:py-28 bg-[#F37121] text-white netx-grid-dark">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-        <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-6">Ready To Open Up The Property?</h2>
-        <p class="text-xl text-white/90 mb-8">Send the address, photos, acreage, access notes, and what you want the land to become.</p>
-        <a href="/get-a-quote" class="inline-flex items-center justify-center px-9 py-4 bg-[#334D2B] text-white font-[Rajdhani] font-bold uppercase tracking-wide hover:bg-black transition">Request a Quote</a>
+    <section class="py-16 md:py-24 bg-[#1E2A1B] text-[#F2EBDF]">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-start">
+          <div>
+            <p class="kicker mb-3">Video library</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">Watch The Thinking, Not Just The Machine.</h2>
+            <p class="mt-5 text-[#F2EBDF]/70 text-lg leading-relaxed">Short field videos and process notes help landowners understand how a professional clearing project is scoped, priced, and finished.</p>
+          </div>
+          <div class="grid gap-5">
+            {videoNotes.map((video) => (
+              <button class="youtube-lite group grid md:grid-cols-[220px_minmax(0,1fr)] gap-0 overflow-hidden border border-white/10 bg-white/[0.04] text-left hover:bg-white/[0.07] transition" data-youtube-id={video.id} aria-label={`Play ${video.title}`}>
+                <div class="relative h-48 md:h-full min-h-[150px] bg-[#334D2B]">
+                  <img src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} alt="" class="h-full w-full object-cover opacity-80 group-hover:opacity-100 transition" loading="lazy" />
+                  <div class="absolute inset-0 flex items-center justify-center"><span class="flex h-16 w-16 items-center justify-center rounded-full bg-[#F37121] text-2xl text-white shadow-xl">▶</span></div>
+                </div>
+                <div class="p-6 md:p-8">
+                  <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-[#F37121]">Field video</p>
+                  <h3 class="mt-2 font-[Rajdhani] text-3xl font-bold uppercase leading-none text-white">{video.title}</h3>
+                  <p class="mt-4 text-[#F2EBDF]/70 leading-relaxed">{video.copy}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <p class="kicker mb-3">Questions</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">What Landowners Ask First.</h2>
+          </div>
+          <FAQ items={faqItems} client:load />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F37121] text-white relative overflow-hidden">
+      <div class="absolute inset-0 netx-grid-dark opacity-20"></div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.22em] text-white/80 mb-4">Start with the next step</p>
+        <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-8xl leading-none max-w-4xl mx-auto">Tell Us What The Property Needs To Become.</h2>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#1E2A1B] transition">Get a Quote</a>
+          <a href="/instant-pricing" class="inline-flex items-center justify-center bg-white text-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#F2EBDF] transition">Try Instant Pricing</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <script is:inline>
+  <Footer />
+
+  <script>
     document.addEventListener('click', (event) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
       const button = target.closest('.youtube-lite');
-      if (!button) return;
+      if (!(button instanceof HTMLElement)) return;
       const id = button.getAttribute('data-youtube-id');
       if (!id) return;
       const iframe = document.createElement('iframe');
-      iframe.className = 'absolute inset-0 h-full w-full';
-      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
       iframe.title = button.getAttribute('aria-label') || 'Land clearing field video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       iframe.allowFullscreen = true;
-      iframe.loading = 'lazy';
-      button.innerHTML = '';
-      button.appendChild(iframe);
+      iframe.className = 'h-full min-h-[260px] w-full';
+      button.replaceWith(iframe);
     });
   </script>
-
-  <Footer />
 </Layout>

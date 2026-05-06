@@ -179,38 +179,38 @@ const schema = {
 >
   <Header client:load />
   
-  <main class="pt-20">
+  <main class="pt-20 bg-[#F2EBDF]">
     <!-- Service Hero -->
-    <section class="relative overflow-hidden bg-[#111111] min-h-[640px] lg:min-h-[600px] flex items-center">
+    <section class="relative overflow-hidden bg-[#F2EBDF] min-h-[640px] lg:min-h-[600px] flex items-center">
       <img 
         src={service.image} 
         alt={service.title}
-        class="absolute inset-0 w-full h-full object-cover opacity-70"
+        class="absolute right-0 top-0 h-full w-full lg:w-[52%] object-cover opacity-90"
       />
-      <div class="absolute inset-0 bg-[linear-gradient(90deg,#111111_0%,rgba(17,17,17,0.94)_42%,rgba(17,17,17,0.45)_100%)]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,rgba(243,113,33,0.28),transparent_28%)]"></div>
-      <div class="absolute inset-0 netx-grid opacity-20"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,#F2EBDF_0%,#F2EBDF_48%,rgba(242,235,223,0.28)_100%)]"></div>
+      <div class="absolute inset-0 netx-topo opacity-30"></div>
+      <div class="absolute right-[4%] bottom-10 hidden lg:block h-[72%] w-[42%] border-2 border-[#334D2B]/20"></div>
 
       <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="max-w-4xl">
           <nav class="text-sm mb-6">
-            <a href="/" class="text-gray-400 hover:text-[#F37121]">Home</a>
-            <span class="text-gray-600 mx-2">/</span>
-            <a href="/#services" class="text-gray-400 hover:text-[#F37121]">Services</a>
-            <span class="text-gray-600 mx-2">/</span>
+            <a href="/" class="text-[#334D2B]/60 hover:text-[#F37121]">Home</a>
+            <span class="text-[#334D2B]/30 mx-2">/</span>
+            <a href="/#services" class="text-[#334D2B]/60 hover:text-[#F37121]">Services</a>
+            <span class="text-[#334D2B]/30 mx-2">/</span>
             <span class="text-[#F37121]">{service.shortTitle}</span>
           </nav>
           {enhancement && <p class="kicker mb-4">{enhancement.eyebrow}</p>}
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-[Rajdhani] font-bold uppercase text-white mb-5 leading-[0.92] drop-shadow-lg">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-[Rajdhani] font-bold uppercase text-[#334D2B] mb-5 leading-[0.92]">
             {service.title} in Northeast Texas
           </h1>
-          <p class="text-xl md:text-2xl text-gray-200 max-w-3xl drop-shadow leading-relaxed">
+          <p class="text-xl md:text-2xl text-[#334D2B]/75 max-w-3xl leading-relaxed">
             {enhancement?.promise || service.description}
           </p>
           {enhancement && (
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 max-w-4xl">
               {enhancement.proof.map((item) => (
-                <div class="border border-white/15 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white font-semibold">
+                <div class="border border-[#334D2B]/15 bg-white/80 px-4 py-3 text-sm text-[#334D2B] font-semibold shadow-sm">
                   <span class="text-[#F37121]">✓</span> {item}
                 </div>
               ))}
@@ -229,7 +229,7 @@ const schema = {
     </section>
 
     <!-- Proof Strip -->
-    <section class="bg-[#1E2A1B] border-y border-white/10 py-5">
+    <section class="bg-white border-y border-[#334D2B]/10 py-5">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-4 gap-3">
           {[
@@ -238,9 +238,9 @@ const schema = {
             ['Certified Process', 'Trained through the same system behind one of the most watched land-clearing brands.'],
             ['Selective Clearing', 'Open the land while protecting keeper trees, shade, screening, and wildlife cover.'],
           ].map(([title, copy]) => (
-            <div class="border border-white/10 bg-white/[0.035] p-5 min-h-[132px]">
-              <div class="font-[Rajdhani] text-2xl font-bold uppercase text-[#F2EBDF] leading-none">{title}</div>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">{copy}</p>
+            <div class="border border-[#334D2B]/10 bg-[#F2EBDF] p-5 min-h-[132px]">
+              <div class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] leading-none">{title}</div>
+              <p class="mt-2 text-sm leading-relaxed text-[#334D2B]/65">{copy}</p>
             </div>
           ))}
         </div>
@@ -253,7 +253,7 @@ const schema = {
           <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
             <div>
               <p class="kicker mb-3">Mulch layer matters</p>
-              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-5">The finish helps protect the soil.</h2>
+              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-5">The finish helps protect the soil.</h2>
               <p class="text-lg text-gray-600 leading-relaxed mb-6">This page is different from a normal clearing service page because erosion control is not a separate machine pass we sell like stump grinding or demolition. It is part of doing forestry mulching correctly.</p>
               <p class="text-lg text-gray-600 leading-relaxed">When brush, saplings, and understory are mulched in place, the leftover material creates a protective ground layer. That cover helps reduce exposed dirt, soften rain impact, slow surface runoff, and keep newly opened trails, slopes, and acreage from turning into bare mud after the first storm.</p>
             </div>
@@ -266,7 +266,7 @@ const schema = {
               ].map(([title, copy]) => (
                 <div class="card-light p-6 min-h-[210px]">
                   <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
-                  <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#111111] mb-2 leading-none">{title}</h3>
+                  <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] mb-2 leading-none">{title}</h3>
                   <p class="text-gray-600 leading-relaxed">{copy}</p>
                 </div>
               ))}
@@ -279,7 +279,7 @@ const schema = {
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-3xl mb-10">
             <p class="kicker mb-3">Real transformation</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-4">Unusable land becomes usable again.</h2>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-4">Unusable land becomes usable again.</h2>
             <p class="text-lg text-gray-600 leading-relaxed">Every service is easier to understand when you see the before and after: the problem area becomes accessible, visible, and useful for the next thing you need to do.</p>
           </div>
           <div class="grid md:grid-cols-3 gap-5">
@@ -307,7 +307,7 @@ const schema = {
         <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
           <div>
             <p class="kicker mb-4">Why it works</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-6">{isErosionControl ? 'Mulch in place. Protect the ground.' : 'Solve the problem. Leave usable land behind.'}</h2>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-6">{isErosionControl ? 'Mulch in place. Protect the ground.' : 'Solve the problem. Leave usable land behind.'}</h2>
             <div class="space-y-5 text-lg text-gray-700 leading-relaxed">
               {service.fullDescription.map((paragraph) => (
                 <p>{paragraph}</p>
@@ -318,7 +318,7 @@ const schema = {
             {benefitTiles.map(([title, copy]) => (
               <div class="card-light p-6 min-h-[190px]">
                 <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
-                <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#111111] mb-2 leading-none">{title}</h3>
+                <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] mb-2 leading-none">{title}</h3>
                 <p class="text-gray-600 leading-relaxed">{copy}</p>
               </div>
             ))}
@@ -337,7 +337,7 @@ const schema = {
               <p class="text-gray-300 text-lg leading-relaxed">Good clearing is not just running a machine through the woods. The right approach depends on density, soil, slope, access, keeper trees, maintenance, and what you want the land to become.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-5">
-              <div class="bg-white text-[#111111] p-8 shadow-2xl">
+              <div class="bg-white text-[#334D2B] p-8 shadow-2xl">
                 <p class="kicker mb-3">Best fit</p>
                 <h3 class="font-[Rajdhani] text-3xl font-bold uppercase mb-5 leading-none">When this is the right move</h3>
                 <div class="space-y-4">
@@ -373,7 +373,7 @@ const schema = {
         <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
           <div>
             <p class="kicker mb-3">What is included</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-5">{isErosionControl ? 'A protective finish, not a bare scrape.' : 'A cleaner finish without piles, burns, and guessing.'}</h2>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-5">{isErosionControl ? 'A protective finish, not a bare scrape.' : 'A cleaner finish without piles, burns, and guessing.'}</h2>
             <p class="text-lg text-gray-600 leading-relaxed mb-8">Every {service.shortTitle.toLowerCase()} project is scoped around the outcome: what needs opened, what should stay, how the area will be maintained, and what finish makes sense for Northeast Texas ground.</p>
             <div class="grid sm:grid-cols-2 gap-4">
               {service.included.map((item) => (

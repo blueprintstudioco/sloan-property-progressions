@@ -74,7 +74,7 @@ const serviceCards: {
     id: 'forestry_mulching',
     title: 'Forestry Mulching',
     eyebrow: 'Acreage clearing',
-    description: 'Clear brush, saplings, invasive growth, and overgrown acreage while leaving the soil structure intact.',
+    description: 'Open overgrown acreage while preserving the trees, shade, and property character that should stay.',
     image: '/images/netx/services/forestry-mulching.jpg',
     badge: 'Most common',
   },
@@ -82,7 +82,7 @@ const serviceCards: {
     id: 'trail_cutting',
     title: 'Trail Cutting',
     eyebrow: 'Access paths',
-    description: 'Open 10-foot-wide trails and access routes through woods, hunting land, and rural properties.',
+    description: 'Plan practical access routes for walking, UTVs, hunting, maintenance, and future property improvements.',
     image: '/images/netx/services/trail-clearing.jpg',
   },
 ];
@@ -154,19 +154,19 @@ function ImageChoiceCard({
     <button
       type="button"
       onClick={onClick}
-      className={`group relative overflow-hidden border text-left shadow-xl transition duration-300 ${selected ? 'border-[#F37121] ring-4 ring-[#F37121]/25' : 'border-black/10 hover:-translate-y-1 hover:border-[#F37121]/70'}`}
+      className={`group relative overflow-hidden border bg-white text-left shadow-lg transition duration-300 ${selected ? 'border-[#F37121] ring-4 ring-[#F37121]/20' : 'border-[#334D2B]/15 hover:-translate-y-1 hover:border-[#F37121]/70 hover:shadow-2xl'}`}
     >
-      <div className="relative h-52 overflow-hidden bg-[#334D2B]">
+      <div className="relative h-48 overflow-hidden bg-[#334D2B] p-3">
         <img src={image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+        <div className="absolute inset-3 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
         {badge && <span className="absolute left-4 top-4 bg-[#F37121] px-3 py-1 font-[Rajdhani] text-xs font-bold uppercase tracking-[0.16em] text-white">{badge}</span>}
         <span className={`absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border-2 text-lg font-bold ${selected ? 'border-[#F37121] bg-[#F37121] text-white' : 'border-white/60 bg-black/30 text-white'}`}>{selected ? '✓' : ''}</span>
-        <div className="absolute bottom-0 left-0 right-0 p-5">
+        <div className="absolute bottom-3 left-3 right-3 p-5">
           {eyebrow && <p className="mb-1 font-[Rajdhani] text-xs font-bold uppercase tracking-[0.18em] text-[#f1b273]">{eyebrow}</p>}
           <h3 className="font-[Rajdhani] text-3xl font-bold uppercase leading-none text-white">{title}</h3>
         </div>
       </div>
-      <div className="min-h-[112px] bg-white p-5 text-zinc-700">
+      <div className="min-h-[124px] bg-white p-5 text-[#334D2B]/75 border-t border-[#334D2B]/10">
         <p>{description}</p>
       </div>
     </button>
@@ -313,12 +313,13 @@ export default function InstantPricingPage() {
   }
 
   return (
-    <section className="bg-[#F2EBDF] text-[#334D2B] py-14 md:py-20">
+    <section className="relative bg-[#F2EBDF] text-[#334D2B] py-14 md:py-20 overflow-hidden">
+      <div className="absolute inset-0 netx-topo opacity-20" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl" ref={calculatorRef}>
         <div className="text-center mb-10">
-          <p className="kicker mb-3">Instant ballpark pricing</p>
-          <h1 className="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none mb-4">Price Your Clearing Project.</h1>
-          <p className="mx-auto max-w-2xl text-lg text-zinc-700">Get a fast ballpark price for forestry mulching or trail cutting on Northeast Texas acreage. Final quotes are confirmed after property review.</p>
+          <p className="kicker mb-3">Property planning estimate</p>
+          <h1 className="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none mb-4">Map The Next Step.</h1>
+          <p className="mx-auto max-w-2xl text-lg text-[#334D2B]/75">Get a fast ballpark for forestry mulching or trail access, then confirm the final scope around access, keeper trees, finish expectations, and the property’s next use.</p>
         </div>
 
         <div className="mb-8">
@@ -326,7 +327,7 @@ export default function InstantPricingPage() {
             <span>Step {currentStepIndex + 1} of {stepLabels.length}</span>
             <span>{Math.round(((currentStepIndex + 1) / stepLabels.length) * 100)}% Complete</span>
           </div>
-          <div className="h-2 overflow-hidden bg-white shadow-inner">
+          <div className="h-2 overflow-hidden bg-white shadow-inner border border-[#334D2B]/10">
             <div className="h-full bg-[#F37121] transition-all duration-300" style={{ width: `${((currentStepIndex + 1) / stepLabels.length) * 100}%` }} />
           </div>
           <div className="mt-4 grid grid-cols-3 gap-2 md:grid-cols-6">
@@ -343,8 +344,8 @@ export default function InstantPricingPage() {
         {step === 'service' && (
           <div className="space-y-6">
             <div className="text-center">
-              <p className="kicker mb-2">Choose service</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">What are we clearing?</h2>
+              <p className="kicker mb-2">Choose a pathway</p>
+              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">What is the next step?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {serviceCards.map((card) => (
@@ -359,13 +360,13 @@ export default function InstantPricingPage() {
 
         {step === 'amount' && selectedService && (
           <div className="mx-auto max-w-3xl bg-white p-6 shadow-xl md:p-8">
-            <p className="kicker mb-2">Project size</p>
+            <p className="kicker mb-2">Property measure</p>
             <h2 className="mb-4 font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">{selectedService.unit === 'linear_feet' ? 'How long is the trail?' : 'How many acres?'}</h2>
             <input className="w-full border border-black/20 bg-[#f8f1e4] px-4 py-5 text-2xl font-semibold focus:outline-none focus:ring-2 focus:ring-[#F37121]" type="number" min={selectedService.unit === 'linear_feet' ? '25' : '0.25'} step={selectedService.unit === 'linear_feet' ? '25' : '0.25'} value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder={selectedService.unit === 'linear_feet' ? 'Example: 800' : 'Example: 2.5'} />
             <p className="mt-3 text-zinc-600">{selectedService.unit === 'linear_feet' ? 'Enter total linear feet for a typical 10-foot-wide trail.' : 'Enter the approximate acreage. Small jobs may be subject to minimum pricing.'}</p>
             <div className="mt-5">
               <p className="mb-2 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.16em] text-zinc-600">
-                {selectedService.unit === 'linear_feet' ? 'Common trail lengths' : 'Common Northeast Texas acreage'}
+                {selectedService.unit === 'linear_feet' ? 'Common trail lengths' : 'Common acreage'}
               </p>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
                 {(selectedService.unit === 'linear_feet' ? quickTrailOptions : quickAcreOptions).map((option) => (
@@ -390,8 +391,8 @@ export default function InstantPricingPage() {
         {step === 'density' && (
           <div className="space-y-6">
             <div className="text-center">
-              <p className="kicker mb-2">Brush density</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">How thick is it?</h2>
+              <p className="kicker mb-2">Current condition</p>
+              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">How much resistance is there?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {densityCards.map((card) => (
@@ -408,8 +409,8 @@ export default function InstantPricingPage() {
         {step === 'terrain' && terrainCards.length > 0 && (
           <div className="space-y-6">
             <div className="text-center">
-              <p className="kicker mb-2">Terrain & access</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">What kind of ground?</h2>
+              <p className="kicker mb-2">Ground conditions</p>
+              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">How does the property lay?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {terrainCards.map((card) => (
@@ -426,9 +427,9 @@ export default function InstantPricingPage() {
         {step === 'contact' && (
           <form onSubmit={handleContactSubmit} className="mx-auto max-w-3xl bg-white border border-black/10 shadow-xl p-6 md:p-8 space-y-6">
             <div>
-              <p className="kicker mb-2">One more step</p>
-              <h2 className="font-[Rajdhani] uppercase font-bold text-4xl mb-2">Where should we send it?</h2>
-              <p className="text-zinc-700">This also lets the local operator follow up if the property needs a closer look.</p>
+              <p className="kicker mb-2">Save the estimate</p>
+              <h2 className="font-[Rajdhani] uppercase font-bold text-4xl mb-2">Where should the plan go?</h2>
+              <p className="text-[#334D2B]/75">This gives the operator enough context to confirm the property, access, and final scope.</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <input className="border border-black/20 bg-[#f8f1e4] px-4 py-4" value={firstName} onChange={(event) => setFirstName(event.target.value)} placeholder="First name *" required />
@@ -450,7 +451,7 @@ export default function InstantPricingPage() {
         {step === 'result' && estimate && (
           <div className="mx-auto max-w-3xl bg-white border border-black/10 shadow-xl p-6 md:p-8">
             <div className="text-center border-b border-black/10 pb-8 mb-6">
-              <p className="kicker mb-3">Your ballpark estimate</p>
+              <p className="kicker mb-3">Your planning estimate</p>
               <div className="font-[Rajdhani] font-bold text-6xl md:text-8xl text-[#F37121] leading-none">{estimate.totalFormatted}</div>
               <p className="mt-3 text-zinc-600">for {formatUnit(selectedService, selectedService?.unit === 'linear_feet' ? Number.parseFloat(quantity) : estimate.totalAcres)}</p>
             </div>
