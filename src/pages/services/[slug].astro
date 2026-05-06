@@ -1,0 +1,466 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer.astro';
+import FAQ from '../../components/FAQ';
+import { services, type ServiceData } from '../../data/services';
+import { CheckCircle } from 'lucide-react';
+
+export function getStaticPaths() {
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+interface Props {
+  service: ServiceData;
+}
+
+const { service } = Astro.props;
+
+const serviceEnhancements: Record<string, {
+  eyebrow: string;
+  promise: string;
+  proof: string[];
+  bestFor: string[];
+  watchOuts: string[];
+  outcome: string;
+}> = {
+  "land-clearing": {
+    eyebrow: "East Texas acreage reclamation",
+    promise: "We solve the real problem: land you own but cannot walk, fence, hunt, mow, inspect, build on, or manage because the brush has taken over.",
+    proof: ["Yaupon + privet", "Pine understory", "Selective clearing", "Usable finish"],
+    bestFor: ["Newly purchased or inherited acreage you need to understand", "Ranch and rural properties losing usable ground to brush", "Homesites, pasture edges, gates, ponds, and back property lines", "Owners who want the land opened up without stripping every good tree"],
+    watchOuts: ["Clearing everything bare when selective work would preserve value", "Cut-and-pile work that creates burn piles and another cleanup bill", "Ignoring wet areas, sandy soil, clay, and access limitations", "Removing visual screening or wildlife cover you meant to keep"],
+    outcome: "Open, usable land with problem brush reduced, access restored, good trees preserved where practical, and a property you can actually manage."
+  },
+  "forestry-mulching": {
+    eyebrow: "Mulch the brush where it stands",
+    promise: "Turn yaupon, privet, cedar, vines, pine saplings, and thick understory into ground-covering mulch instead of piles, burns, and haul-off chaos.",
+    proof: ["One-pass clearing", "Low haul-off", "Soil cover", "Cleaner access"],
+    bestFor: ["Dense understory that makes acreage hard to walk or see through", "Hunting trails, shooting lanes, food plot edges, and stand access", "Fence rows, pasture edges, and rural property cleanup", "Landowners who want a cleaner finish than cut, drag, pile, and burn"],
+    watchOuts: ["Expecting mulching to replace all dirt work or large-tree removal", "Mulching wet ground at the wrong time and creating ruts", "Leaving too much material in driveways, pads, or future build areas", "Not planning how the area will be maintained after regrowth starts"],
+    outcome: "Dense growth reduced into a manageable mulch layer so the land is visible, walkable, and easier to maintain."
+  },
+  "brush-clearing": {
+    eyebrow: "Understory is the enemy",
+    promise: "We target the brush layer that steals visibility, access, fence maintenance, hunting routes, and pasture edges on East Texas properties.",
+    proof: ["Yaupon", "Privet", "Vines", "Saplings"],
+    bestFor: ["Properties where good trees exist but the understory is out of control", "Fence rows and trails swallowed by vines and brush", "Pasture, pond, barn, and gate areas that need visibility again", "Landowners who want selective thinning instead of full clearing"],
+    watchOuts: ["Leaving root systems and regrowth strategy unaddressed", "Clearing too aggressively and losing privacy or wildlife cover", "Only knocking brush down instead of creating maintainable access", "Treating every thicket the same when each area has a different purpose"],
+    outcome: "Cleaner sight lines, safer access, and brush pressure reduced without turning the property into a bare dirt lot."
+  },
+  "fence-line-clearing": {
+    eyebrow: "Find the line. Keep it maintainable.",
+    promise: "Open old fence rows, property boundaries, gates, corners, and easements so fencing can be built, repaired, inspected, and maintained.",
+    proof: ["Boundary access", "Gate cleanup", "Fence visibility", "Controlled width"],
+    bestFor: ["Old barbed-wire rows hidden by brush and vines", "New fence installation or replacement", "Ranch gates, corners, lanes, and easements", "Landowners who need to inspect property lines before bigger work"],
+    watchOuts: ["Clearing too narrow for future fence maintenance", "Clearing too wide and wasting money or privacy", "Damaging existing wire, posts, or desirable boundary trees", "Starting before the actual property line is understood"],
+    outcome: "A visible, workable fence corridor with enough room to build, repair, and maintain the line."
+  },
+  "trail-clearing": {
+    eyebrow: "Access changes everything",
+    promise: "Create practical routes through wooded acreage for UTVs, hunting access, food plots, stand routes, inspections, ponds, and equipment movement.",
+    proof: ["UTV routes", "Hunting access", "Shooting lanes", "Low-impact layout"],
+    bestFor: ["Hunting properties that need stand, blind, and food plot access", "Large parcels where you cannot reach the back acreage", "Trail systems for UTVs, tractors, and property inspections", "Owners who want access without over-clearing the land"],
+    watchOuts: ["Building trails that hold water or wash out", "Opening routes that spook wildlife or remove useful screening", "Making turns too tight for equipment", "Ignoring gates, slopes, creek crossings, and low areas"],
+    outcome: "A usable trail and access system that lets you move through the property without fighting brush every time."
+  },
+  "acreage-cleanup": {
+    eyebrow: "Reset neglected land",
+    promise: "Take acreage that has gotten away from you and turn it back into land you can see, access, plan, and maintain.",
+    proof: ["Property reset", "Storm cleanup", "Pasture edges", "New-owner clarity"],
+    bestFor: ["Inherited, purchased, or neglected property that feels overwhelming", "Storm-damaged areas, old brush piles, and blocked access", "Pasture edges and rural lots being swallowed by brush", "Owners preparing to sell, build, fence, hunt, or manage the land"],
+    watchOuts: ["Spending money before deciding what the land should become", "Ignoring buried debris, old wire, stumps, or hidden obstacles", "Clearing without a plan for ongoing maintenance", "Making the place look cleaner while leaving access problems unsolved"],
+    outcome: "A cleaner, more understandable property with access restored and the next decision easier to make."
+  },
+  "site-preparation": {
+    eyebrow: "Clear for the next contractor",
+    promise: "Open and organize rural ground before cabins, barndominiums, shops, barns, driveways, utilities, pads, and future dirt work.",
+    proof: ["Homesite access", "Utility corridors", "Build openings", "Clean handoff"],
+    bestFor: ["Cabins, barndominiums, barns, shops, sheds, and rural homesites", "Driveway, utility, and equipment access before construction", "Lots that need brush cleared before grading or pad work", "Owners who want fewer surprises when builders arrive"],
+    watchOuts: ["Leaving roots, organics, or stumps where future pads go", "Clearing without thinking about drainage, staging, and truck access", "Removing trees that could have improved shade or property value", "Handing the next trade a messy, blocked, or wet site"],
+    outcome: "A clearer, more organized work area that helps the next phase start faster and cleaner."
+  },
+  "erosion-control": {
+    eyebrow: "Mulch cover protects the ground",
+    promise: "Forestry mulching does more than remove brush. The mulch layer helps shield East Texas soil from rain impact, runoff, rutting, and erosion after the land is opened up.",
+    proof: ["Mulch cover", "Less exposed soil", "Slower runoff", "Cleaner finish"],
+    bestFor: ["Landowners worried about bare clay or sandy soil after clearing", "Trails, slopes, pasture edges, and openings that need ground cover left in place", "Properties where brush needs reduced without scraping the site down to dirt", "Projects where the finished surface matters as much as the clearing itself"],
+    watchOuts: ["Scraping everything bare and letting rain hit exposed soil", "Pushing mulch off slopes, trails, or low areas that need cover", "Treating mulching like finish grading or engineered drainage", "Ignoring wet areas, water paths, and future maintenance after clearing"],
+    outcome: "A cleaner cleared area with a natural mulch layer left behind to reduce exposed soil and help the property handle rain better."
+  }
+};
+
+const enhancement = serviceEnhancements[service.slug];
+const isErosionControl = service.slug === 'erosion-control';
+
+const defaultProofGallery = [
+  { image: '/images/netx/before-after/acreage-cleanup.jpg', label: 'Overgrown acreage opened back up' },
+  { image: '/images/netx/before-after/fence-line-clearing.jpg', label: 'Fence rows cleared and maintainable' },
+  { image: '/images/netx/before-after/trail-clearing.jpg', label: 'Trails and access cut through thick growth' },
+];
+
+const serviceProofGalleries: Record<string, { image: string; label: string }[]> = {
+  'land-clearing': [
+    { image: '/images/netx/services/land-clearing-before-after/scene-1.jpg', label: 'Overgrown acreage opened into usable land' },
+    { image: '/images/netx/services/land-clearing-before-after/scene-2.jpg', label: 'Rural access restored through thick growth' },
+    { image: '/images/netx/services/land-clearing-before-after/scene-3.jpg', label: 'Selective clearing with good trees preserved' },
+  ],
+  'forestry-mulching': [
+    { image: '/images/netx/services/forestry-mulching-before-after/acreage-understory.jpg', label: 'Dense understory opened for usable acreage' },
+    { image: '/images/netx/services/forestry-mulching-before-after/fence-row.jpg', label: 'Brush-choked fence row made maintainable' },
+    { image: '/images/netx/services/forestry-mulching-before-after/hunting-trail.jpg', label: 'Hunting and UTV access cut through thick growth' },
+  ],
+  'brush-clearing': [
+    { image: '/images/netx/services/brush-clearing-before-after/scene-1.jpg', label: 'Yaupon and privet thinned into open understory' },
+    { image: '/images/netx/services/brush-clearing-before-after/scene-2.jpg', label: 'Brush pressure reduced without scraping the land bare' },
+    { image: '/images/netx/services/brush-clearing-before-after/scene-3.jpg', label: 'Sight lines restored under keeper trees' },
+  ],
+  'fence-line-clearing': [
+    { image: '/images/netx/services/fence-line-clearing-before-after/scene-1.jpg', label: 'Hidden fence row opened for inspection' },
+    { image: '/images/netx/services/fence-line-clearing-before-after/scene-2.jpg', label: 'Gate and boundary access made workable again' },
+    { image: '/images/netx/services/fence-line-clearing-before-after/scene-3.jpg', label: 'Controlled-width corridor ready for fence work' },
+  ],
+  'trail-clearing': [
+    { image: '/images/netx/services/trail-clearing-before-after/scene-1.jpg', label: 'Blocked woods opened into UTV access' },
+    { image: '/images/netx/services/trail-clearing-before-after/scene-2.jpg', label: 'Hunting route cut through thick cover' },
+    { image: '/images/netx/services/trail-clearing-before-after/scene-3.jpg', label: 'Practical trail system with a natural finish' },
+  ],
+  'acreage-cleanup': [
+    { image: '/images/netx/services/acreage-cleanup-before-after/scene-1.jpg', label: 'Neglected acreage reset for planning' },
+    { image: '/images/netx/services/acreage-cleanup-before-after/scene-2.jpg', label: 'Storm mess and overgrowth cleaned up' },
+    { image: '/images/netx/services/acreage-cleanup-before-after/scene-3.jpg', label: 'Usable ground recovered from old brush piles' },
+  ],
+  'site-preparation': [
+    { image: '/images/netx/services/site-preparation-before-after/scene-1.jpg', label: 'Homesite opening cleared for the next phase' },
+    { image: '/images/netx/services/site-preparation-before-after/scene-2.jpg', label: 'Driveway and utility access opened first' },
+    { image: '/images/netx/services/site-preparation-before-after/scene-3.jpg', label: 'Build area organized with keeper trees protected' },
+  ],
+};
+
+const proofGallery = serviceProofGalleries[service.slug] || defaultProofGallery;
+
+const standardBenefitTiles = [
+  ['No burn piles', 'Brush is processed where it stands instead of stacked into a second cleanup problem.'],
+  ['Cleaner access', 'Open trails, fence rows, pasture edges, and hunting lanes you can actually use.'],
+  ['Mulch layer', 'Ground cover helps reduce exposed soil and keeps the finish more natural.'],
+  ['Selective finish', 'Remove problem growth while preserving shade, privacy, and good trees where practical.'],
+];
+
+const erosionBenefitTiles = [
+  ['Rain impact buffer', 'Mulch helps soften direct rainfall so cleared soil is not immediately beaten bare.'],
+  ['Less exposed dirt', 'Leaving ground cover matters on East Texas clay, sandy soil, slopes, and trail edges.'],
+  ['Slower runoff', 'A mulch layer can help water move less aggressively across freshly opened ground.'],
+  ['Natural finish', 'The goal is not a scraped dirt lot — it is usable land with cover left where it helps.'],
+];
+
+const benefitTiles = isErosionControl ? erosionBenefitTiles : standardBenefitTiles;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.title,
+  "description": service.description,
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Sloan Property Progressions",
+    "areaServed": ["Northeast Texas", "East Texas", "North Texas"]
+  },
+  "areaServed": ["Northeast Texas", "East Texas", "North Texas"]
+};
+---
+
+<Layout 
+  title={`${service.title} Services | Sloan Property Progressions | Northeast Texas`}
+  description={service.metaDescription}
+  schema={schema}
+>
+  <Header client:load />
+  
+  <main class="pt-20">
+    <!-- Service Hero -->
+    <section class="relative overflow-hidden bg-[#111111] min-h-[640px] lg:min-h-[600px] flex items-center">
+      <img 
+        src={service.image} 
+        alt={service.title}
+        class="absolute inset-0 w-full h-full object-cover opacity-70"
+      />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,#111111_0%,rgba(17,17,17,0.94)_42%,rgba(17,17,17,0.45)_100%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,rgba(243,113,33,0.28),transparent_28%)]"></div>
+      <div class="absolute inset-0 netx-grid opacity-20"></div>
+
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-4xl">
+          <nav class="text-sm mb-6">
+            <a href="/" class="text-gray-400 hover:text-[#F37121]">Home</a>
+            <span class="text-gray-600 mx-2">/</span>
+            <a href="/#services" class="text-gray-400 hover:text-[#F37121]">Services</a>
+            <span class="text-gray-600 mx-2">/</span>
+            <span class="text-[#F37121]">{service.shortTitle}</span>
+          </nav>
+          {enhancement && <p class="kicker mb-4">{enhancement.eyebrow}</p>}
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-[Rajdhani] font-bold uppercase text-white mb-5 leading-[0.92] drop-shadow-lg">
+            {service.title} in Northeast Texas
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-200 max-w-3xl drop-shadow leading-relaxed">
+            {enhancement?.promise || service.description}
+          </p>
+          {enhancement && (
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 max-w-4xl">
+              {enhancement.proof.map((item) => (
+                <div class="border border-white/15 bg-white/10 backdrop-blur-sm px-4 py-3 text-sm text-white font-semibold">
+                  <span class="text-[#F37121]">✓</span> {item}
+                </div>
+              ))}
+            </div>
+          )}
+          <div class="mt-9 flex flex-col sm:flex-row gap-4">
+            <a href="/get-a-quote" class="btn-primary text-base">
+              Request a {service.shortTitle} Quote
+            </a>
+            <a href={isErosionControl ? '/services/forestry-mulching' : '/portfolio'} class="btn-secondary text-base">
+              {isErosionControl ? 'See Forestry Mulching' : 'See Before & After Work'}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof Strip -->
+    <section class="bg-[#1E2A1B] border-y border-white/10 py-5">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-3">
+          {[
+            ['Serving East Texas', 'Built for rural acreage, ranch land, hunting properties, and wooded lots.'],
+            ['Clear Project Pricing', 'Scope-based pricing before work starts — no open-ended machine time surprises.'],
+            ['Certified Process', 'Trained through the same system behind one of the most watched land-clearing brands.'],
+            ['Selective Clearing', 'Open the land while protecting keeper trees, shade, screening, and wildlife cover.'],
+          ].map(([title, copy]) => (
+            <div class="border border-white/10 bg-white/[0.035] p-5 min-h-[132px]">
+              <div class="font-[Rajdhani] text-2xl font-bold uppercase text-[#F2EBDF] leading-none">{title}</div>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {isErosionControl ? (
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+            <div>
+              <p class="kicker mb-3">Mulch layer matters</p>
+              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-5">The finish helps protect the soil.</h2>
+              <p class="text-lg text-gray-600 leading-relaxed mb-6">This page is different from a normal clearing service page because erosion control is not a separate machine pass we sell like stump grinding or demolition. It is part of doing forestry mulching correctly.</p>
+              <p class="text-lg text-gray-600 leading-relaxed">When brush, saplings, and understory are mulched in place, the leftover material creates a protective ground layer. That cover helps reduce exposed dirt, soften rain impact, slow surface runoff, and keep newly opened trails, slopes, and acreage from turning into bare mud after the first storm.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {[
+                ['Bare dirt is fragile', 'Scraped ground takes the full force of East Texas rain, especially on clay, sandy soil, trail edges, and slopes.'],
+                ['Mulch shields the surface', 'Processed vegetation left in place creates cover between rainfall and the soil underneath.'],
+                ['Roots and cover still matter', 'Selective clearing can preserve keeper trees, root structure, shade, and natural stability where practical.'],
+                ['Not engineered drainage', 'Mulch helps, but culverts, ditches, grading, and serious washouts may need a dirt-work or drainage contractor.'],
+              ].map(([title, copy]) => (
+                <div class="card-light p-6 min-h-[210px]">
+                  <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
+                  <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#111111] mb-2 leading-none">{title}</h3>
+                  <p class="text-gray-600 leading-relaxed">{copy}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    ) : (
+      <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-10">
+            <p class="kicker mb-3">Real transformation</p>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-4">Unusable land becomes usable again.</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">Every service is easier to understand when you see the before and after: the problem area becomes accessible, visible, and useful for the next thing you need to do.</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-5">
+            {proofGallery.map((proof) => (
+              <figure class="group relative overflow-hidden min-h-[320px] bg-[#111111] shadow-xl">
+                <img src={proof.image} alt={proof.label} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/70 shadow-[0_0_18px_rgba(0,0,0,0.7)]"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10"></div>
+                <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">Before</div>
+                <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">After</div>
+                <figcaption class="absolute bottom-0 left-0 right-0 p-5">
+                  <p class="text-xs uppercase tracking-[0.24em] text-[#F37121] font-bold mb-2">Transformation</p>
+                  <p class="font-[Rajdhani] text-2xl font-bold uppercase text-white leading-none">{proof.label}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Why It Works -->
+    <section class="py-20 bg-[#F2EBDF] netx-grid-dark">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
+          <div>
+            <p class="kicker mb-4">Why it works</p>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-6">{isErosionControl ? 'Mulch in place. Protect the ground.' : 'Solve the problem. Leave usable land behind.'}</h2>
+            <div class="space-y-5 text-lg text-gray-700 leading-relaxed">
+              {service.fullDescription.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {benefitTiles.map(([title, copy]) => (
+              <div class="card-light p-6 min-h-[190px]">
+                <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
+                <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#111111] mb-2 leading-none">{title}</h3>
+                <p class="text-gray-600 leading-relaxed">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {enhancement && (
+      <section class="py-20 bg-[#111111] text-white netx-topo">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+            <div>
+              <p class="kicker mb-4">Know before you clear</p>
+              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase leading-none mb-5">What {service.shortTitle.toLowerCase()} is — and what it is not.</h2>
+              <p class="text-gray-300 text-lg leading-relaxed">Good clearing is not just running a machine through the woods. The right approach depends on density, soil, slope, access, keeper trees, maintenance, and what you want the land to become.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div class="bg-white text-[#111111] p-8 shadow-2xl">
+                <p class="kicker mb-3">Best fit</p>
+                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase mb-5 leading-none">When this is the right move</h3>
+                <div class="space-y-4">
+                  {enhancement.bestFor.map((item) => (
+                    <div class="flex gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#F37121] flex-shrink-0 mt-1" />
+                      <p class="text-gray-700 leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div class="border border-white/15 bg-white/[0.055] p-8">
+                <p class="kicker mb-3">Watch-outs</p>
+                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase mb-5 leading-none">Where cheap work gets expensive</h3>
+                <div class="space-y-4">
+                  {enhancement.watchOuts.map((item) => (
+                    <div class="flex gap-3">
+                      <span class="text-[#F37121] font-bold mt-0.5">!</span>
+                      <p class="text-gray-300 leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- What's Included / Pricing -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
+          <div>
+            <p class="kicker mb-3">What is included</p>
+            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#111111] leading-none mb-5">{isErosionControl ? 'A protective finish, not a bare scrape.' : 'A cleaner finish without piles, burns, and guessing.'}</h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">Every {service.shortTitle.toLowerCase()} project is scoped around the outcome: what needs opened, what should stay, how the area will be maintained, and what finish makes sense for Northeast Texas ground.</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {service.included.map((item) => (
+                <div class="flex items-start gap-3 border border-black/10 bg-[#F2EBDF] p-4">
+                  <CheckCircle className="w-5 h-5 text-[#F37121] flex-shrink-0 mt-0.5" />
+                  <span class="text-gray-800 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <aside class="card-dark p-8 sticky top-28">
+            <p class="kicker mb-3">Clear project pricing</p>
+            <h3 class="text-3xl font-[Rajdhani] font-bold uppercase text-white mb-4 leading-none">No hourly guessing game.</h3>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">The quote should match the scope: acreage, brush density, access, terrain, wet areas, keeper trees, and the finish you want. That is how you avoid day-rate surprises and half-finished work.</p>
+            <ul class="space-y-3 text-gray-300 text-sm border-t border-white/10 pt-6">
+              <li>• Property address or general location</li>
+              <li>• Approximate acreage or linear footage</li>
+              <li>• Desired final use: trails, fence, pasture, hunting, homesite</li>
+              <li>• Access, wet spots, slopes, utilities, or obstacles</li>
+            </ul>
+            <a href="/get-a-quote" class="btn-primary w-full mt-7">Request a Clear Quote</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-20 bg-[#111111] netx-topo">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="kicker mb-3">Process</p>
+          <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-white leading-none mb-4">Simple process. Big transformation.</h2>
+          <p class="text-gray-400 text-lg">A good job starts with scope and access, then ends with land you can walk, mow, hunt, fence, manage, or build toward.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {service.process.map((step, index) => (
+            <div class="relative border border-white/10 bg-white/[0.045] p-6 min-h-[250px]">
+              <div class="text-6xl font-[Rajdhani] font-bold uppercase text-[#F37121]/25 mb-5">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <h3 class="text-2xl font-[Rajdhani] font-bold uppercase text-white mb-3 leading-none">{step.step}</h3>
+              <p class="text-gray-400 leading-relaxed">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini FAQ -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <p class="kicker mb-3">FAQ</p>
+          <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#1a1a1a] leading-none mb-4">{service.shortTitle} questions.</h2>
+          <p class="text-gray-600 text-lg">The basics most Northeast Texas landowners want answered before they request a quote.</p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <FAQ items={service.faqs} client:load />
+        </div>
+        <div class="text-center mt-10">
+          <a href="/faq" class="text-[#1a1a1a] font-semibold hover:text-[#F37121] transition underline">
+            View All FAQs →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-[#F37121] netx-grid-dark">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#1a1a1a] mb-6 leading-none">
+          Ready to take back your land?
+        </h2>
+        <p class="text-xl text-[#1a1a1a]/80 mb-8 max-w-2xl mx-auto">
+          Get a clear project quote for {service.shortTitle.toLowerCase()} across Northeast Texas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/get-a-quote" class="inline-flex items-center justify-center px-8 py-4 bg-[#111111] text-white font-[Rajdhani] font-bold uppercase tracking-wide text-lg rounded-sm hover:bg-black transition">
+            Request a Quote
+          </a>
+          <a href="/portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-[#1a1a1a] text-[#1a1a1a] font-[Rajdhani] font-bold uppercase tracking-wide text-lg rounded-sm hover:bg-[#111111] hover:text-white transition">
+            See Before &amp; After Work
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,209 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer.astro';
+import fs from 'fs';
+import path from 'path';
+
+export async function getStaticPaths() {
+  const dir = path.join(process.cwd(), 'src', 'content', 'programmatic', 'locations');
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(file => {
+    const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+    return { params: { slug: data.slug }, props: { data } };
+  });
+}
+
+const { data } = Astro.props;
+const QUOTE_URL = '/get-a-quote';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `${data.service} in ${data.city}, ${data.state}`,
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Sloan Property Progressions",
+    "areaServed": ["Northeast Texas", "East Texas", "North Texas"]
+  },
+  "areaServed": { "@type": "City", "name": data.city }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faqs?.map(f => ({
+    "@type": "Question", "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+---
+
+<Layout title={data.metaTitle} description={data.metaDescription} schema={schema}>
+  <Header client:load />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <main class="pt-20">
+    <!-- Hero -->
+    <section class="page-hero text-white py-20 md:py-28">
+      <div class="container mx-auto px-6">
+        <nav class="mb-6 text-sm text-white/50">
+          <a href="/" class="hover:text-primary">Home</a>
+          <span class="mx-2">›</span>
+          <a href="/services/area" class="hover:text-primary">Service Areas</a>
+          <span class="mx-2">›</span>
+          <span class="text-white">{data.city}, {data.state}</span>
+        </nav>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold uppercase mb-6">{data.h1}</h1>
+        <p class="text-xl text-white/70 max-w-3xl mb-8">{data.heroText}</p>
+        <div class="flex flex-wrap gap-4">
+          <a href={QUOTE_URL} class="px-8 py-4 bg-primary text-secondary font-bold text-lg rounded-sm hover:bg-primary/90 transition-all">Get a Free Quote →</a>
+          <a href="/get-a-quote" class="px-8 py-4 border-2 border-white/30 text-white font-bold text-lg rounded-sm hover:border-primary hover:text-primary transition-all">📞 Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Context -->
+    <section class="py-16">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-heading font-bold uppercase mb-8">{data.service} in {data.city}</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card-light p-6">
+            <h3 class="text-lg font-bold text-primary mb-3 font-heading">🌍 Local Terrain</h3>
+            <p class="text-secondary/80">{data.localContext?.terrain}</p>
+          </div>
+          <div class="card-light p-6">
+            <h3 class="text-lg font-bold text-primary mb-3 font-heading">🪨 Soil Conditions</h3>
+            <p class="text-secondary/80">{data.localContext?.soilConditions}</p>
+          </div>
+          <div class="card-light p-6">
+            <h3 class="text-lg font-bold text-primary mb-3 font-heading">📅 Best Time of Year</h3>
+            <p class="text-secondary/80">{data.localContext?.seasonalNotes}</p>
+          </div>
+          <div class="card-light p-6">
+            <h3 class="text-lg font-bold text-primary mb-3 font-heading">🏗️ Common Projects</h3>
+            <div class="flex flex-wrap gap-2">
+              {data.localContext?.commonProjects?.map(p => (
+                <span class="px-3 py-1 bg-white rounded-full text-sm text-secondary/70 border border-secondary/10">{p}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+        {data.localContext?.localRegulations && (
+          <div class="mt-6 bg-primary/10 border border-primary/20 rounded-sm p-6">
+            <h3 class="text-lg font-bold text-primary mb-2 font-heading">⚖️ Local Regulations</h3>
+            <p class="text-secondary/80">{data.localContext.localRegulations}</p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 bg-muted">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-heading font-bold uppercase mb-10">Why Choose Sloan Property Progressions?</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.benefits?.map((b, i) => (
+            <div class="card-light p-6 hover:border-primary/30 transition-colors">
+              <div class="w-12 h-12 rounded-sm bg-primary/10 flex items-center justify-center text-primary font-bold text-xl mb-4">{i + 1}</div>
+              <h3 class="text-lg font-bold mb-2 font-heading">{b.title}</h3>
+              <p class="text-secondary/70 text-sm">{b.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-16">
+      <div class="container mx-auto px-6 max-w-3xl">
+        <h2 class="text-3xl font-heading font-bold uppercase mb-10">How It Works</h2>
+        {data.process?.map((s, i) => (
+          <div class="flex gap-6 mb-8">
+            <div class="flex-shrink-0">
+              <div class="w-12 h-12 rounded-full bg-primary text-secondary font-bold text-lg flex items-center justify-center">{i + 1}</div>
+            </div>
+            <div class="pb-4">
+              <h3 class="text-xl font-bold mb-2 font-heading">{s.step}</h3>
+              <p class="text-secondary/70">{s.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-16 bg-secondary text-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-heading font-bold uppercase mb-8">{data.service} Pricing in {data.city}</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+          <div class="bg-white/5 border border-primary/30 rounded-sm p-8">
+            <div class="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Starting At</div>
+            <div class="text-4xl font-bold mb-2">{data.pricingInfo?.startingAt}</div>
+            <div class="text-white/50 text-sm mb-4">Average: {data.pricingInfo?.averageRange}</div>
+            <p class="text-white/50 text-sm italic">{data.pricingInfo?.note}</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-sm p-8">
+            <div class="text-sm text-white/50 font-semibold uppercase tracking-wide mb-4">Pricing Factors</div>
+            <ul class="space-y-3">
+              {data.pricingInfo?.factors?.map(f => (
+                <li class="flex items-start gap-3 text-white/70"><span class="text-primary mt-1">✓</span>{f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8">
+          <a href={QUOTE_URL} class="inline-flex px-8 py-4 bg-primary text-secondary font-bold text-lg rounded-sm hover:bg-primary/90">Get Your Free Quote →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-16">
+      <div class="container mx-auto px-6 max-w-3xl">
+        <h2 class="text-3xl font-heading font-bold uppercase mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {data.faqs?.map(faq => (
+            <details class="group bg-muted rounded-sm overflow-hidden">
+              <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-secondary/5 transition-colors">
+                <span class="font-bold pr-4 font-heading">{faq.question}</span>
+                <svg class="w-5 h-5 text-secondary/40 transition-transform group-open:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-5 pb-5 text-secondary/70">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-primary/10">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-4">Ready to Start Your Project in {data.city}?</h2>
+        <p class="text-secondary/70 text-lg mb-8 max-w-2xl mx-auto">Get a free, no-obligation quote. We'll assess your project and give you an honest price.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={QUOTE_URL} class="px-10 py-4 bg-primary text-secondary font-bold text-xl rounded-sm hover:bg-primary/90">Get a Free Quote</a>
+          <a href="/get-a-quote" class="px-10 py-4 border-2 border-secondary/20 font-bold text-xl rounded-sm hover:border-primary hover:text-primary transition-all">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nearby -->
+    {data.nearbyAreas?.length > 0 && (
+      <section class="py-12 border-t border-secondary/10">
+        <div class="container mx-auto px-6">
+          <h2 class="text-xl font-heading font-bold uppercase mb-4">We Also Serve Nearby Areas</h2>
+          <div class="flex flex-wrap gap-3">
+            {data.nearbyAreas.map(slug => {
+              const svcSlug = data.slug.replace(/-[a-z]+-[a-z]{2}$/, '');
+              const name = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).replace(/ (Oh|Ky|In)$/i, m => ' ' + m.trim().toUpperCase());
+              return <a href={`/services/area/${svcSlug}-${slug}`} class="px-4 py-2 bg-muted rounded-sm text-sm hover:border-primary/50 hover:text-primary transition-colors border border-secondary/10">{name} →</a>;
+            })}
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

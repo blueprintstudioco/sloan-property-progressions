@@ -1,0 +1,52 @@
+---
+const services = [
+  { name: 'Forestry Mulching', href: '/services/forestry-mulching' },
+  { name: 'Brush Clearing', href: '/services/brush-clearing' },
+  { name: 'Trail & Access Clearing', href: '/services/trail-clearing' },
+  { name: 'Fence Line Clearing', href: '/services/fence-line-clearing' },
+  { name: 'Acreage Cleanup', href: '/services/acreage-cleanup' },
+  { name: 'Site Prep', href: '/services/site-preparation' },
+];
+---
+
+<footer class="bg-[#334D2B] text-white pt-16 pb-8 border-t border-white/10">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <div class="mb-5">
+          <img src="/assets/spp-logo.png" alt="Sloan Property Progressions" class="h-16 md:h-20 w-auto max-w-xs object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]" />
+        </div>
+        <p class="text-[#F37121] font-[Rajdhani] text-xl font-bold uppercase tracking-wide mb-4">Progress Your Property.</p>
+        <p class="text-gray-400 max-w-xl">
+          Forestry mulching, brush clearing, trail cutting, fence-line cleanup, and land prep for acreage owners across Northeast Texas.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-[Rajdhani] font-bold uppercase tracking-wide mb-4">Services</h3>
+        <ul class="space-y-2">
+          {services.map((service) => (
+            <li><a href={service.href} class="text-gray-400 hover:text-[#F37121] transition text-sm">{service.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-[Rajdhani] font-bold uppercase tracking-wide mb-4">Contact</h3>
+        <div class="space-y-3 text-sm text-gray-400">
+          <p><span class="block text-white font-medium">Service Area</span>Northeast Texas acreage, ranch, and rural property work</p>
+          <p><span class="block text-white font-medium">Quotes</span><a href="/get-a-quote" class="hover:text-[#F37121] transition">Request a project quote</a></p>
+          <p><span class="block text-white font-medium">Email</span><a href="mailto:quotes@sloanpropertyprogressions.com" class="hover:text-[#F37121] transition">quotes@sloanpropertyprogressions.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-500 text-sm">© 2026 Sloan Property Progressions. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="/privacy" class="text-gray-600 hover:text-gray-400 text-xs transition">Privacy Policy</a>
+        <a href="/terms" class="text-gray-600 hover:text-gray-400 text-xs transition">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Terms of Service | Sloan Property Progressions" description="Terms of service for Sloan Property Progressions.">
+  <Header client:load />
+  <main class="bg-white pt-28 pb-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <h1 class="text-4xl font-[Rajdhani] font-bold text-[#334D2B] mb-2">Terms of Service</h1>
+      <p class="text-gray-500 text-sm mb-10">Last updated: May 2026</p>
+      <div class="space-y-8 text-gray-700 leading-relaxed">
+        <section><h2 class="text-xl font-[Rajdhani] font-bold text-[#334D2B] mb-3">Website Use</h2><p>This website provides general information and quote-request pathways for Sloan Property Progressions. Submitting a form or inquiry does not create a binding agreement or guarantee service availability.</p></section>
+        <section><h2 class="text-xl font-[Rajdhani] font-bold text-[#334D2B] mb-3">Quotes & Project Scope</h2><p>All projects are subject to review, access conditions, property boundaries, utility considerations, weather, equipment availability, and written scope approval before work begins.</p></section>
+        <section><h2 class="text-xl font-[Rajdhani] font-bold text-[#334D2B] mb-3">Content</h2><p>Site content, logos, images, and copy are owned by Sloan Property Progressions or used with permission. Do not copy or reuse site materials without written approval.</p></section>
+        <section><h2 class="text-xl font-[Rajdhani] font-bold text-[#334D2B] mb-3">No Warranty</h2><p>Information is provided as-is for general reference. Pricing, service areas, and availability may change.</p></section>
+        <section><h2 class="text-xl font-[Rajdhani] font-bold text-[#334D2B] mb-3">Contact</h2><p>Questions? Email <a href="mailto:quotes@sloanpropertyprogressions.com" class="text-[#F37121] hover:underline">quotes@sloanpropertyprogressions.com</a>.</p></section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

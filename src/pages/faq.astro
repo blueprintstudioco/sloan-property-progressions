@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+import FAQ from '../components/FAQ';
+
+const items = [
+  { question: 'What areas do you serve?', answer: 'Sloan Property Progressions serves rural properties across Northeast Texas and East Texas, including acreage near Tyler, Longview, Texarkana, Marshall, Mount Pleasant, Sulphur Springs, Athens, Canton, Gilmer, and nearby communities.' },
+  { question: 'What does forestry mulching leave behind?', answer: 'Brush and small trees are processed into mulch and spread across the ground. It reduces hauling, protects soil better than scrape-and-haul clearing, and leaves the property easier to walk and maintain.' },
+  { question: 'Can you clear selectively around good trees?', answer: 'Yes. Most landowners want selective clearing: remove problem brush, vines, saplings, and invasive growth while preserving shade, screening, mature trees, and the natural look of the land.' },
+  { question: 'Can you clear fence rows and trails?', answer: 'Yes. Fence-line clearing, property-line access, hunting trails, UTV routes, gate openings, and equipment lanes are core land-clearing jobs.' },
+  { question: 'What information helps you quote fastest?', answer: 'Send the address or parcel link, photos/video, approximate acreage or linear footage, desired finish, access notes, and what trees or areas should stay protected.' },
+  { question: 'Will the job require hauling debris away?', answer: 'Often, no. Forestry mulching processes brush in place. Some cleanup jobs may require pile handling or haul-off depending on the material and finish you want.' },
+];
+---
+
+<Layout title="FAQ | Sloan Property Progressions" description="Common questions about forestry mulching, land clearing, fence-line clearing, trails, and acreage cleanup in Northeast Texas.">
+  <Header client:load />
+  <main class="pt-20 bg-[#F2EBDF]">
+    <section class="page-hero py-20 md:py-28">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <p class="kicker mb-4">Common questions</p>
+        <h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">Land Clearing FAQ</h1>
+      </div>
+    </section>
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-6 max-w-3xl">
+        <FAQ items={items} client:load />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

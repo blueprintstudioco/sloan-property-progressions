@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+
+const proofSections = [
+  {
+    eyebrow: 'Acreage reclamation',
+    title: 'Rural Land Clearing',
+    href: '/services/land-clearing',
+    intro: 'Overgrown Northeast Texas acreage opened back up for access, visibility, mowing, fencing, hunting, and next-phase planning.',
+    items: [
+      { image: '/images/netx/services/land-clearing-before-after/scene-1.jpg', label: 'Overgrown acreage opened into usable land' },
+      { image: '/images/netx/services/land-clearing-before-after/scene-2.jpg', label: 'Rural access restored through thick growth' },
+      { image: '/images/netx/services/land-clearing-before-after/scene-3.jpg', label: 'Selective clearing with good trees preserved' },
+    ],
+  },
+  {
+    eyebrow: 'Mulch the brush',
+    title: 'Forestry Mulching',
+    href: '/services/forestry-mulching',
+    intro: 'Dense understory, yaupon, privet, cedar, vines, and saplings reduced into a natural mulch layer instead of burn piles.',
+    items: [
+      { image: '/images/netx/services/forestry-mulching-before-after/acreage-understory.jpg', label: 'Dense understory opened for usable acreage' },
+      { image: '/images/netx/services/forestry-mulching-before-after/fence-row.jpg', label: 'Brush-choked fence row made maintainable' },
+      { image: '/images/netx/services/forestry-mulching-before-after/hunting-trail.jpg', label: 'Hunting and UTV access cut through thick growth' },
+    ],
+  },
+  {
+    eyebrow: 'Understory cleanup',
+    title: 'Brush Clearing',
+    href: '/services/brush-clearing',
+    intro: 'The brush layer removed so good trees, sight lines, gates, pasture edges, and usable ground show up again.',
+    items: [
+      { image: '/images/netx/services/brush-clearing-before-after/scene-1.jpg', label: 'Yaupon and privet thinned into open understory' },
+      { image: '/images/netx/services/brush-clearing-before-after/scene-2.jpg', label: 'Brush pressure reduced without scraping the land bare' },
+      { image: '/images/netx/services/brush-clearing-before-after/scene-3.jpg', label: 'Sight lines restored under keeper trees' },
+    ],
+  },
+  {
+    eyebrow: 'Recover the boundary',
+    title: 'Fence Line Clearing',
+    href: '/services/fence-line-clearing',
+    intro: 'Fence rows, old wire, corners, gates, and boundary corridors opened enough to inspect, repair, build, and maintain.',
+    items: [
+      { image: '/images/netx/services/fence-line-clearing-before-after/scene-1.jpg', label: 'Hidden fence row opened for inspection' },
+      { image: '/images/netx/services/fence-line-clearing-before-after/scene-2.jpg', label: 'Gate and boundary access made workable again' },
+      { image: '/images/netx/services/fence-line-clearing-before-after/scene-3.jpg', label: 'Controlled-width corridor ready for fence work' },
+    ],
+  },
+  {
+    eyebrow: 'Hunting + UTV access',
+    title: 'Trail Cutting',
+    href: '/services/trail-clearing',
+    intro: 'Blocked woods turned into practical UTV routes, hunting access, stand paths, inspection lanes, and back-acreage trails.',
+    items: [
+      { image: '/images/netx/services/trail-clearing-before-after/scene-1.jpg', label: 'Blocked woods opened into UTV access' },
+      { image: '/images/netx/services/trail-clearing-before-after/scene-2.jpg', label: 'Hunting route cut through thick cover' },
+      { image: '/images/netx/services/trail-clearing-before-after/scene-3.jpg', label: 'Practical trail system with a natural finish' },
+    ],
+  },
+  {
+    eyebrow: 'Property reset',
+    title: 'Acreage Cleanup',
+    href: '/services/acreage-cleanup',
+    intro: 'Neglected, inherited, storm-damaged, or newly purchased property cleaned up so the next decision is obvious.',
+    items: [
+      { image: '/images/netx/services/acreage-cleanup-before-after/scene-1.jpg', label: 'Neglected acreage reset for planning' },
+      { image: '/images/netx/services/acreage-cleanup-before-after/scene-2.jpg', label: 'Storm mess and overgrowth cleaned up' },
+      { image: '/images/netx/services/acreage-cleanup-before-after/scene-3.jpg', label: 'Usable ground recovered from old brush piles' },
+    ],
+  },
+  {
+    eyebrow: 'Clear the opening',
+    title: 'Site Preparation',
+    href: '/services/site-preparation',
+    intro: 'Rural homesite, shop, barn, driveway, and utility openings cleared so the next contractor is not fighting brush first.',
+    items: [
+      { image: '/images/netx/services/site-preparation-before-after/scene-1.jpg', label: 'Homesite opening cleared for the next phase' },
+      { image: '/images/netx/services/site-preparation-before-after/scene-2.jpg', label: 'Driveway and utility access opened first' },
+      { image: '/images/netx/services/site-preparation-before-after/scene-3.jpg', label: 'Build area organized with keeper trees protected' },
+    ],
+  },
+];
+
+const totalProofs = proofSections.reduce((count, section) => count + section.items.length, 0);
+---
+
+<Layout title="Before & After Land Clearing Work | Sloan Property Progressions" description="Before and after examples for forestry mulching, brush clearing, trail cutting, fence-line clearing, acreage cleanup, and rural site prep across Northeast Texas.">
+  <Header client:load />
+  <main class="pt-20 bg-[#F2EBDF] text-[#111111] overflow-hidden">
+    <section class="relative bg-[#334D2B] text-white py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 netx-grid opacity-15"></div>
+      <div class="absolute -right-24 top-12 h-72 w-72 rounded-full bg-[#F37121]/20 blur-3xl"></div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <p class="kicker mb-4">Our work</p>
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-end">
+          <div>
+            <h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Before / After Land Clearing.</h1>
+            <p class="text-xl md:text-2xl text-white/75 max-w-3xl leading-relaxed">The point is simple: make overgrown property easier to see, walk, fence, hunt, maintain, or build on. Here are the service-specific transformations.</p>
+          </div>
+          <div class="border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
+            <div class="font-[Rajdhani] text-6xl font-bold uppercase text-[#F37121] leading-none">{totalProofs}</div>
+            <p class="mt-2 text-sm uppercase tracking-[0.2em] text-[#F2EBDF] font-bold">Proof images</p>
+            <p class="mt-3 text-zinc-400 text-sm leading-relaxed">Grouped by the same service pages customers use to understand the work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky top-20 z-20 border-y border-black/10 bg-[#F2EBDF]/95 backdrop-blur-md">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 overflow-x-auto">
+        <div class="flex gap-3 min-w-max">
+          {proofSections.map((section) => (
+            <a href={`#${section.href.split('/').pop()}`} class="border border-black/10 bg-white px-4 py-2 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-[#111111] hover:bg-[#F37121] hover:text-white transition">{section.title}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-16 md:space-y-24">
+        {proofSections.map((section, index) => (
+          <section id={section.href.split('/').pop()} class="scroll-mt-36">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+              <div class="max-w-3xl">
+                <p class="kicker mb-3">{section.eyebrow}</p>
+                <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">{section.title}</h2>
+                <p class="mt-4 text-lg text-gray-700 leading-relaxed">{section.intro}</p>
+              </div>
+              <a href={section.href} class="inline-flex items-center justify-center border border-black/20 bg-white px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">View Service →</a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5">
+              {section.items.map((item) => (
+                <figure class="group relative overflow-hidden min-h-[320px] bg-[#111111] shadow-2xl">
+                  <img src={item.image} alt={`${item.label} before and after`} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading={index === 0 ? 'eager' : 'lazy'} />
+                  <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/70 shadow-[0_0_18px_rgba(0,0,0,0.7)]"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10"></div>
+                  <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">Before</div>
+                  <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">After</div>
+                  <figcaption class="absolute bottom-0 left-0 right-0 p-5">
+                    <p class="text-xs uppercase tracking-[0.24em] text-[#F37121] font-bold mb-2">Transformation</p>
+                    <p class="font-[Rajdhani] text-2xl font-bold uppercase text-white leading-none">{item.label}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-[#334D2B] text-white py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <p class="kicker mb-3">Ready to see your property like this?</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">Send the property. Get a clear scope.</h2>
+            <p class="mt-4 text-lg text-zinc-300 max-w-2xl">Tell us what the land needs to become: trail access, fence line, homesite, acreage reset, brush clearing, or forestry mulching.</p>
+          </div>
+          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#F37121] text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#ff8436] transition">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

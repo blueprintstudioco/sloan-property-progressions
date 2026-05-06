@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+
+const standards = [
+  'Walk the land before quoting the work',
+  'Protect keeper trees, gates, fences, trails, and access points',
+  'Clear selectively instead of flattening everything by default',
+  'Leave brush processed, access opened, and next steps obvious',
+];
+---
+
+<Layout title="About | Sloan Property Progressions" description="Sloan Property Progressions provides forestry mulching, brush clearing, fence-line clearing, trails, and acreage cleanup for rural property owners.">
+  <Header client:load />
+  <main class="pt-20 bg-[#F2EBDF]">
+    <section class="relative min-h-[78vh] bg-[#334D2B] text-white overflow-hidden flex items-center">
+      <div class="absolute inset-0"><img src="/images/netx/forestry-mulching-hero.png" alt="Northeast Texas forestry mulching" class="w-full h-full object-cover opacity-45" /><div class="absolute inset-0 bg-gradient-to-r from-[#334D2B] via-[#334D2B]/85 to-[#334D2B]/30"></div><div class="absolute inset-0 netx-grid opacity-50"></div></div>
+      <div class="relative z-10 container mx-auto px-6 py-24 max-w-5xl">
+        <img src="/assets/spp-logo.png" alt="Sloan Property Progressions logo" class="h-24 mb-7" />
+        <p class="kicker mb-4">About Sloan Property Progressions</p>
+        <h1 class="font-[Rajdhani] uppercase font-bold text-6xl md:text-8xl leading-[0.86] mb-7">We Help Landowners Take Their Property Back.</h1>
+        <p class="text-xl md:text-2xl text-zinc-200 max-w-3xl leading-relaxed">Forestry mulching, brush clearing, fence-line clearing, trail cutting, and acreage cleanup for Northeast Texas rural property owners.</p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="kicker mb-3 text-[#334D2B]">Our approach</p>
+          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-6">Clear The Problem Brush. Keep The Land Worth Owning.</h2>
+          <p class="text-lg text-zinc-700 leading-relaxed mb-5">Good land clearing is not just running a machine until everything is gone. Northeast Texas properties need judgment: what should stay, what should go, where access should open, and how the finished property needs to function.</p>
+          <p class="text-lg text-zinc-700 leading-relaxed">We focus on rural acreage, ranches, hunting land, homesites, fence rows, trails, and overgrown lots that need a cleaner, more usable finish.</p>
+        </div>
+        <div class="card-dark p-8 text-white">
+          <p class="kicker mb-5">Operating standards</p>
+          <div class="space-y-5">{standards.map((item, i) => <div class="flex gap-4 border-b border-white/10 pb-5 last:border-b-0"><span class="w-10 h-10 bg-[#F37121] text-[#334D2B] flex items-center justify-center font-[Rajdhani] font-bold">{i + 1}</span><p class="text-zinc-200 text-lg">{item}</p></div>)}</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

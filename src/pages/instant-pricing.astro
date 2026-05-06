@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+import InstantPricingPage from '../react-pages/InstantPricingPage';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Instant Land Clearing Pricing Calculator',
+  description: 'Get an instant ballpark estimate for forestry mulching and trail cutting in Northeast Texas.',
+};
+---
+
+<Layout title="Instant Pricing Calculator | Sloan Property Progressions" description="Get a server-side ballpark estimate for forestry mulching or trail cutting in Northeast Texas. No add-ons, no pressure." schema={schema}>
+  <Header client:load />
+  <main class="pt-20 bg-[#F2EBDF]">
+    <InstantPricingPage client:load />
+  </main>
+  <Footer />
+</Layout>

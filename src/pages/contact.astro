@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer.astro';
+
+const phoneDisplay = '(469) 555-0137';
+const phoneHref = 'tel:+14695550137';
+const email = 'contact@sloanpropertyprogressions.com';
+
+const checklist = [
+  'Property address, map pin, or parcel ID',
+  'What needs cleared: brush, trails, fence line, homesite, pasture edge, or full acreage',
+  'Approximate acreage, trail length, or fence-line footage if you know it',
+  'Access notes: gate width, low spots, slopes, utilities, fences, or soft ground',
+  'Desired finish: rough access, clean mulch finish, build-ready opening, or maintainable corridor',
+];
+
+const counties = [
+  'Dallas County',
+  'Collin County',
+  'Denton County',
+  'Tarrant County',
+  'Rockwall County',
+  'Kaufman County',
+  'Ellis County',
+  'Hunt County',
+  'Grayson County',
+  'Johnson County',
+  'Parker County',
+  'Wise County',
+];
+
+const cities = [
+  'Dallas',
+  'Fort Worth',
+  'Plano',
+  'Frisco',
+  'McKinney',
+  'Allen',
+  'Denton',
+  'Lewisville',
+  'Flower Mound',
+  'Grapevine',
+  'Arlington',
+  'Mansfield',
+  'Grand Prairie',
+  'Mesquite',
+  'Garland',
+  'Rockwall',
+  'Forney',
+  'Terrell',
+  'Kaufman',
+  'Waxahachie',
+  'Ennis',
+  'Midlothian',
+  'Greenville',
+  'Royse City',
+  'Sherman',
+  'Denison',
+  'Weatherford',
+  'Decatur',
+];
+
+const services = [
+  ['Forestry Mulching', '/services/forestry-mulching'],
+  ['Land Clearing', '/services/land-clearing'],
+  ['Brush Clearing', '/services/brush-clearing'],
+  ['Fence Line Clearing', '/services/fence-line-clearing'],
+  ['Trail Cutting', '/services/trail-clearing'],
+  ['Acreage Cleanup', '/services/acreage-cleanup'],
+  ['Site Preparation', '/services/site-preparation'],
+];
+---
+
+<Layout title="Contact Sloan Property Progressions | Dallas-Fort Worth Land Clearing" description="Contact Sloan Property Progressions for forestry mulching, brush clearing, trail cutting, fence-line clearing, acreage cleanup, and rural site prep within roughly 60 miles of Dallas, Texas.">
+  <Header client:load />
+  <main class="pt-20 bg-[#F2EBDF] text-[#334D2B] overflow-hidden">
+    <section class="relative bg-[#334D2B] text-white py-20 md:py-28 overflow-hidden">
+      <div class="absolute inset-0 netx-grid opacity-15"></div>
+      <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-[#F37121]/25 blur-3xl"></div>
+      <div class="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-white/5 blur-3xl"></div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_380px] gap-10 lg:gap-16 items-center">
+          <div class="max-w-4xl">
+            <p class="kicker mb-4">DFW land clearing — 60-mile service radius</p>
+            <h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Tell Us What You Need Cleared.</h1>
+            <p class="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl">We help property owners, rural homeowners, builders, hunters, ranchers, and land investors open up overgrown ground across Dallas-Fort Worth and rural properties within roughly 60 miles of Dallas.</p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              <a href={phoneHref} class="btn-primary">Call {phoneDisplay}</a>
+              <a href="/get-a-quote" class="btn-secondary">Request a Quote</a>
+            </div>
+          </div>
+
+          <aside class="border border-white/10 bg-white/[0.04] p-6 md:p-8 shadow-2xl">
+            <img src="/assets/spp-logo.png" alt="Sloan Property Progressions" class="h-24 w-auto mb-6" />
+            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Contact</p>
+            <div class="space-y-5">
+              <div>
+                <p class="text-sm uppercase tracking-[0.18em] text-zinc-500 font-bold mb-1">Phone</p>
+                <a href={phoneHref} class="font-[Rajdhani] text-3xl font-bold uppercase hover:text-[#F37121] transition">{phoneDisplay}</a>
+              </div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.18em] text-zinc-500 font-bold mb-1">Email</p>
+                <a href={`mailto:${email}`} class="text-base md:text-lg text-zinc-200 hover:text-[#F37121] transition whitespace-nowrap">{email}</a>
+              </div>
+              <div class="border-t border-white/10 pt-5">
+                <p class="text-sm uppercase tracking-[0.18em] text-zinc-500 font-bold mb-1">Service radius</p>
+                <p class="text-zinc-300">Dallas-Fort Worth and surrounding rural properties, generally within about 60 miles of Dallas.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-stretch">
+        <aside class="card-dark text-white p-8 md:p-10 flex flex-col justify-between">
+          <div>
+            <p class="kicker mb-3">Fastest way to get scoped</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none mb-6">Make The Property Easy To Understand.</h2>
+            <p class="text-zinc-200 text-lg leading-relaxed mb-8">A good quote starts with access, density, acreage, finish expectations, and what needs to stay. Send what you have — we can help sort out the rest.</p>
+            <ul class="space-y-4">
+              {checklist.map((item) => (
+                <li class="flex gap-3 text-zinc-200 leading-relaxed">
+                  <span class="mt-1 h-5 w-5 shrink-0 bg-[#F37121] text-[#334D2B] font-bold text-xs grid place-items-center">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="mt-10 border-t border-white/10 pt-6">
+            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-2">Good fit for</p>
+            <p class="text-zinc-300">Acreage cleanup, hunting trails, fence rows, rural homesites, small farm access, pasture edges, and wooded-property reclamation.</p>
+          </div>
+        </aside>
+
+        <div class="bg-white border border-black/10 shadow-xl p-8 md:p-10">
+          <p class="kicker mb-3 text-[#334D2B]">Start here</p>
+          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none mb-5">Choose The Best Next Step.</h2>
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <a href={phoneHref} class="group border border-black/10 bg-[#334D2B] text-white p-6 hover:bg-[#F37121] transition">
+              <p class="font-[Rajdhani] uppercase font-bold text-3xl leading-none mb-3">Call</p>
+              <p class="text-zinc-200 group-hover:text-white">Best if access, timing, or scope is complicated.</p>
+              <p class="mt-4 font-bold text-xl">{phoneDisplay}</p>
+            </a>
+            <a href="/get-a-quote" class="group border border-black/10 bg-[#F2EBDF] p-6 hover:border-[#F37121] transition">
+              <p class="font-[Rajdhani] uppercase font-bold text-3xl leading-none mb-3">Quote</p>
+              <p class="text-zinc-700">Best if you already have the address, photos, and goal.</p>
+              <p class="mt-4 font-bold text-[#F37121]">Request a quote →</p>
+            </a>
+          </div>
+
+          <div class="border-t border-black/10 pt-8">
+            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-4">Services</p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {services.map(([service, href]) => (
+                <a href={href} class="border border-black/10 px-4 py-3 font-semibold hover:border-[#F37121] hover:text-[#F37121] transition">{service} →</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#334D2B] text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+          <div>
+            <p class="kicker mb-3">Service area</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-5">Roughly 60 Miles Around Dallas.</h2>
+            <p class="text-lg text-zinc-200 leading-relaxed mb-8">The core service area is Dallas-Fort Worth and nearby rural communities where acreage, woods, trails, fence lines, and homesite openings are common. If the property is just outside the radius, reach out anyway — larger jobs can make travel make sense.</p>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="border border-white/10 bg-white/[0.04] p-5">
+                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">60±</p>
+                <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">mile radius</p>
+              </div>
+              <div class="border border-white/10 bg-white/[0.04] p-5">
+                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">12</p>
+                <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">county area</p>
+              </div>
+              <div class="border border-white/10 bg-white/[0.04] p-5">
+                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">DFW</p>
+                <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">home base</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="bg-white text-[#334D2B] p-6 md:p-8 shadow-2xl">
+              <h3 class="font-[Rajdhani] uppercase font-bold text-3xl mb-5">Counties Served</h3>
+              <div class="grid gap-2">
+                {counties.map((county) => (
+                  <span class="border border-black/10 bg-[#F2EBDF] px-3 py-2 text-sm font-semibold">{county}</span>
+                ))}
+              </div>
+            </div>
+            <div class="bg-white text-[#334D2B] p-6 md:p-8 shadow-2xl">
+              <h3 class="font-[Rajdhani] uppercase font-bold text-3xl mb-5">Cities & Areas</h3>
+              <div class="flex flex-wrap gap-2">
+                {cities.map((city) => (
+                  <span class="bg-[#F2EBDF] border border-black/10 px-3 py-2 text-sm font-semibold">{city}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-16 md:py-24 overflow-hidden">
+      <div class="absolute inset-0 netx-grid-dark opacity-20"></div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
+          <div>
+            <p class="kicker mb-3 text-[#334D2B]">Clear scope. Clear pricing.</p>
+            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-5">No Mystery Day Rate Guessing.</h2>
+            <p class="text-lg text-zinc-700 leading-relaxed max-w-3xl">We want the scope to be obvious before equipment shows up: what gets cleared, what stays, what the finish should look like, and what access constraints could affect the work.</p>
+          </div>
+          <div class="bg-[#334D2B] text-white p-8 md:p-10 shadow-2xl">
+            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Ready?</p>
+            <h3 class="font-[Rajdhani] uppercase font-bold text-4xl leading-none mb-5">Start With The Property.</h3>
+            <p class="text-zinc-300 mb-7">Call now or request a quote and include the location, photos, acreage, and goal for the land.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href={phoneHref} class="btn-primary">Call {phoneDisplay}</a>
+              <a href="/get-a-quote" class="btn-secondary">Request Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

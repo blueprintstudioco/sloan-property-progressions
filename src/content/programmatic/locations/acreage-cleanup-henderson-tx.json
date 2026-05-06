@@ -1,0 +1,95 @@
+{
+  "city": "Henderson",
+  "state": "TX",
+  "service": "Acreage Cleanup",
+  "slug": "acreage-cleanup-henderson-tx",
+  "metaTitle": "Acreage Cleanup in Henderson, TX | Sloan Property Progressions",
+  "metaDescription": "Need acreage cleanup in Henderson, TX? Sloan Property Progressions clears brush, fence lines, trails, and overgrown acreage with track-loader land clearing equipment.",
+  "h1": "Acreage Cleanup in Henderson, Texas",
+  "heroText": "Sloan Property Progressions provides acreage cleanup around Henderson, TX for acreage owners, ranch properties, hunting land, rural homesites, and overgrown lots that need a clean, usable finish.",
+  "localContext": {
+    "terrain": "Henderson properties can range from wooded acreage and pine stands to pasture edges, creek bottoms, sandy loam, clay, and mixed rural lots. We plan access before the machine shows up so the work fits the ground instead of tearing it up unnecessarily.",
+    "soilConditions": "Northeast Texas commonly brings sandy loam, red clay, gumbo pockets, roots, stumps, and wet low spots. Takeuchi track-loader clearing keeps ground pressure low while still giving enough power for thick brush and saplings.",
+    "commonProjects": [
+      "Neglected property cleanup",
+      "Ranch and recreational land recovery",
+      "New owner property reset",
+      "Storm-damaged brush cleanup",
+      "Pasture edge opening",
+      "Building-site access"
+    ],
+    "seasonalNotes": "Most acreage cleanup can be done year-round, but long wet stretches can change access and finish quality. For spring growth, summer firebreaks, hunting-season prep, or winter visibility work, the quote should account for current ground conditions.",
+    "localRegulations": "Every property is different. Larger clearing, work near creeks, county roads, utilities, or protected areas may need extra planning. We confirm boundaries, utilities, access points, and any owner-known restrictions before cutting."
+  },
+  "benefits": [
+    {
+      "title": "Cleaner Finished Ground",
+      "description": "Brush is mulched down instead of leaving a rough mess of piles, ruts, and scattered limbs."
+    },
+    {
+      "title": "Selective Clearing",
+      "description": "Good trees, trails, openings, and boundaries can be protected while problem growth gets removed."
+    },
+    {
+      "title": "Better Access",
+      "description": "Open up land so you can inspect, maintain, hunt, build, fence, or enjoy the property again."
+    },
+    {
+      "title": "Built for Texas Brush",
+      "description": "The site is centered on Takeuchi-powered clearing work for dense undergrowth, saplings, thorny brush, and rural access."
+    },
+    {
+      "title": "Straight Scope",
+      "description": "You get a clear plan for what gets cleared, what stays, how wide the work area is, and what the finish should look like."
+    }
+  ],
+  "process": [
+    {
+      "step": "Send the Property Info",
+      "description": "Share the address, photos or video, approximate acreage or linear footage, and what you want the property to become."
+    },
+    {
+      "step": "Scope the Clearing",
+      "description": "We look at access, density, terrain, boundaries, trees to save, and whether the job is best handled by mulching, selective clearing, or cleanup."
+    },
+    {
+      "step": "Clear With the Right Finish",
+      "description": "The crew opens up the ground, processes brush, protects the areas that should stay, and keeps the work aligned to the agreed scope."
+    },
+    {
+      "step": "Final Walkthrough",
+      "description": "We review the cleared area, confirm access and finish quality, and talk through any next-phase work if needed."
+    }
+  ],
+  "pricingInfo": {
+    "startingAt": "$1,500",
+    "averageRange": "$3,000 - $15,000+",
+    "factors": [
+      "Total acreage",
+      "How overgrown the property is",
+      "Access and wet areas",
+      "Scope of selective clearing",
+      "Mulch finish vs. pile/haul requirements"
+    ],
+    "note": "Acreage Cleanup pricing around Henderson depends on density, access, terrain, acreage, finish level, and how much selective work is required. Photos and a parcel address help tighten the estimate fast."
+  },
+  "faqs": [
+    {
+      "question": "Do you offer acreage cleanup near Henderson?",
+      "answer": "Yes. Sloan Property Progressions serves Henderson and nearby rural properties across Northeast Texas for acreage cleanup, brush cleanup, trails, fence lines, and acreage work."
+    },
+    {
+      "question": "What equipment do you use?",
+      "answer": "We use track-loader clearing and forestry mulching attachments suitable for thick brush, saplings, trails, fence lines, and rural acreage."
+    },
+    {
+      "question": "Will you clear everything or work selectively?",
+      "answer": "Either. Most landowners want selective clearing: remove the problem brush, open access, and keep desirable trees or screening where it makes sense."
+    },
+    {
+      "question": "Can you quote from photos?",
+      "answer": "Often, yes for a starting range. For tight pricing we need the address, photos or video, approximate acreage or footage, desired finish, and any access limits."
+    }
+  ],
+  "nearbyAreas": []
+}

@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F37121;
+  --color-secondary: #334D2B;
+  --color-muted: #F2EBDF;
+  --font-family-heading: 'Rajdhani', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-secondary);
+  background-color: #F2EBDF;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+main {
+  background: #F2EBDF;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  background-color: var(--color-primary);
+  color: #334D2B;
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 0.125rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(243,113,33,0.18);
+}
+
+.btn-primary:hover {
+  background-color: #ff8436;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.75);
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 0.125rem;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--color-secondary);
+}
+
+
+/* Sitewide Sloan design helpers */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: #1E2A1B;
+  color: white;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 75% 28%, rgba(243,113,33,0.20), transparent 26%),
+    linear-gradient(90deg, rgba(30,42,27,1), rgba(30,42,27,0.88) 45%, rgba(30,42,27,0.62));
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: .35;
+  pointer-events: none;
+}
+
+.page-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
+  letter-spacing: .28em;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.card-dark {
+  background: #202020;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: .125rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,.24);
+}
+
+.card-light {
+  background: white;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .125rem;
+  box-shadow: 0 16px 36px rgba(0,0,0,.06);
+}
+
+.prose-lite p {
+  color: #3f3f46;
+  line-height: 1.8;
+}
+
+/* Make older generated templates feel less rounded/SaaS without touching every JSON page. */
+.bg-secondary { background-color: #334D2B !important; }
+.bg-muted { background-color: #F2EBDF !important; }
+.rounded-xl, .rounded-lg { border-radius: .125rem !important; }
+
+/* Visual texture utilities */
+.netx-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.netx-grid-dark {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.16) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.netx-topo {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='360' viewBox='0 0 640 360'%3E%3Cg fill='none' stroke='%23F37121' stroke-width='2' stroke-opacity='.32'%3E%3Cpath d='M-40 78 C70 16 150 18 250 76 S470 144 690 48'/%3E%3Cpath d='M-50 124 C72 54 172 62 282 122 S500 190 696 98'/%3E%3Cpath d='M-48 176 C86 108 174 116 300 174 S514 246 690 154'/%3E%3Cpath d='M-60 232 C70 158 188 178 312 230 S516 300 702 218'/%3E%3Cpath d='M-38 292 C92 222 210 238 330 292 S540 350 698 282'/%3E%3Cpath d='M88 -22 C132 44 130 104 88 160 S52 256 126 392'/%3E%3Cpath d='M240 -30 C286 42 280 118 238 184 S220 280 294 390'/%3E%3Cpath d='M430 -32 C470 38 468 110 424 180 S394 282 472 394'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 20% 20%, rgba(243,113,33,0.14), transparent 32%),
+    radial-gradient(ellipse at 82% 60%, rgba(243,113,33,0.10), transparent 28%);
+  background-size: 640px 360px, auto, auto;
+}
+
+.video-rail {
+  scrollbar-width: thin;
+  scrollbar-color: #F37121 #27272a;
+}
+
+.video-rail::-webkit-scrollbar {
+  height: 10px;
+}
+
+.video-rail::-webkit-scrollbar-track {
+  background: #27272a;
+}
+
+.video-rail::-webkit-scrollbar-thumb {
+  background: #F37121;
+  border-radius: 999px;
+}
+
+/* Accordion styles */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
