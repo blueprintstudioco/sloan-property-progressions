@@ -4,37 +4,133 @@ import Header from '../components/Header';
 import Footer from '../components/Footer.astro';
 
 const standards = [
-  'Walk the land before quoting the work',
-  'Protect keeper trees, gates, fences, trails, and access points',
-  'Clear selectively instead of flattening everything by default',
-  'Leave brush processed, access opened, and next steps obvious',
+  'Walk the property and understand what the landowner wants the land to become',
+  'Protect keeper trees, gates, fences, water edges, trails, and access points',
+  'Open problem areas selectively instead of flattening everything by default',
+  'Leave the land cleaner, easier to move through, and ready for the next step',
+];
+
+const values = [
+  ['Plan first', 'Every property has a different purpose. Trails, homesites, hunting access, fence lines, and pasture edges should not all be cleared the same way.'],
+  ['Preserve what matters', 'Good clearing creates room without stripping away the shade, screening, mature trees, and character that made the property worth owning.'],
+  ['Finish clean', 'The goal is not just fewer trees. It is better access, cleaner sightlines, usable ground, and a property owner who knows what to do next.'],
+];
+
+const process = [
+  ['01', 'Understand the goal', 'Myles starts with the landowner’s intended use: better access, reclaiming overgrowth, opening trails, preparing a homesite, or cleaning up neglected acreage.'],
+  ['02', 'Read the property', 'Slope, soil, drainage, density, good trees, boundaries, and entry points all affect the best clearing plan.'],
+  ['03', 'Clear with judgment', 'The work is done selectively so the property becomes more usable without losing the natural feel that gives it value.'],
 ];
 ---
 
-<Layout title="About | Sloan Property Progressions" description="Sloan Property Progressions provides forestry mulching, brush clearing, fence-line clearing, trails, and acreage cleanup for rural property owners.">
+<Layout
+  title="About Myles Sloan | Sloan Property Progressions"
+  description="Meet Myles Sloan, the operator behind Sloan Property Progressions. Selective forestry mulching, trails, brush clearing, and rural property preparation across Northeast Texas."
+>
   <Header client:load />
-  <main class="pt-20 bg-[#F2EBDF]">
-    <section class="relative min-h-[78vh] bg-[#334D2B] text-white overflow-hidden flex items-center">
-      <div class="absolute inset-0"><img src="/images/netx/forestry-mulching-hero.png" alt="Northeast Texas forestry mulching" class="w-full h-full object-cover opacity-45" /><div class="absolute inset-0 bg-gradient-to-r from-[#334D2B] via-[#334D2B]/85 to-[#334D2B]/30"></div><div class="absolute inset-0 netx-grid opacity-50"></div></div>
-      <div class="relative z-10 container mx-auto px-6 py-24 max-w-5xl">
-        <img src="/assets/spp-logo.png" alt="Sloan Property Progressions logo" class="h-24 mb-7" />
-        <p class="kicker mb-4">About Sloan Property Progressions</p>
-        <h1 class="font-heading font-semibold text-6xl md:text-8xl leading-[0.86] mb-7">We Help Landowners Take Their Property Back.</h1>
-        <p class="text-xl md:text-2xl text-zinc-200 max-w-3xl leading-relaxed">Forestry mulching, brush clearing, fence-line clearing, trail cutting, and acreage cleanup for Northeast Texas rural property owners.</p>
+  <main class="pt-20 bg-[#F2EBDF] text-[#1E2A1B]">
+    <section class="relative min-h-[82vh] overflow-hidden flex items-center bg-[#F2EBDF]">
+      <div class="absolute inset-0 netx-topo opacity-30"></div>
+      <div class="absolute right-0 top-0 h-full w-full lg:w-[54%]">
+        <img src="/images/sloan/about-myles-property-walk.jpg" alt="Operator walking a selectively cleared rural property" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#F2EBDF] via-[#F2EBDF]/45 to-transparent lg:from-[#F2EBDF] lg:via-[#F2EBDF]/20"></div>
+      </div>
+      <div class="absolute right-[5%] bottom-10 hidden lg:block h-[68%] w-[42%] border-2 border-[#334D2B]/20"></div>
+      <div class="relative z-10 container mx-auto px-6 py-24">
+        <div class="max-w-3xl">
+          <p class="kicker mb-5">About Sloan Property Progressions</p>
+          <h1 class="font-heading font-semibold text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-[-0.055em] text-[#334D2B] mb-7">Meet Myles Sloan.</h1>
+          <p class="text-xl md:text-2xl text-[#334D2B]/78 max-w-2xl leading-relaxed mb-8">Myles is the operator behind Sloan Property Progressions — helping Northeast Texas landowners open overgrown ground, create access, and move their property toward its next use without losing its character.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/get-a-quote" class="btn-primary">Talk Through Your Property</a>
+            <a href="/portfolio" class="inline-flex items-center justify-center px-7 py-4 border border-[#334D2B]/25 text-[#334D2B] font-body font-bold hover:bg-white transition">See The Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-6 grid lg:grid-cols-[0.82fr_1.18fr] gap-12 lg:gap-16 items-start">
+        <div class="lg:sticky lg:top-28">
+          <p class="kicker mb-4 text-[#334D2B]">The person behind the work</p>
+          <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-[0.95] tracking-[-0.04em] text-[#334D2B] mb-6">A property-first clearing company.</h2>
+        </div>
+        <div class="space-y-6 text-lg text-[#334D2B]/76 leading-relaxed">
+          <p>Sloan Property Progressions exists for landowners who do not just want acreage knocked down. They want the property to make more sense when the work is done.</p>
+          <p>Myles approaches clearing as a progression: where should you enter, what needs to open first, which trees should stay, what areas should remain screened, and what finish will make the next step easier?</p>
+          <p>That might mean forestry mulching a tangled understory, opening trails through timber, cleaning up a fence line, preparing a homesite, or reclaiming rural land that has become too thick to use. The common thread is simple: clear the problem areas, preserve the property’s character, and leave the land ready for what comes next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F2EBDF] border-y border-[#334D2B]/10">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mb-12">
+          <p class="kicker mb-4">What guides the work</p>
+          <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-[0.96] tracking-[-0.04em] text-[#334D2B]">Open the land without stripping away what makes it valuable.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          {values.map(([title, copy]) => (
+            <div class="bg-white border border-[#334D2B]/10 p-7 shadow-sm">
+              <div class="h-1 w-16 bg-[#F37121] mb-6"></div>
+              <h3 class="font-heading font-semibold text-3xl tracking-[-0.03em] text-[#334D2B] mb-4">{title}</h3>
+              <p class="text-[#334D2B]/70 leading-relaxed">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#334D2B] text-white relative overflow-hidden">
+      <div class="absolute inset-0 netx-topo opacity-15"></div>
+      <div class="relative container mx-auto px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+        <div>
+          <p class="kicker mb-4">How Myles works</p>
+          <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-[0.96] tracking-[-0.04em] mb-6">Clear with a plan, not a guess.</h2>
+          <p class="text-lg text-[#F2EBDF]/78 leading-relaxed">The best land clearing jobs start before the machine ever touches brush. Myles looks at how the property should function when the work is finished, then clears toward that outcome.</p>
+        </div>
+        <div class="space-y-4">
+          {process.map(([number, title, copy]) => (
+            <div class="grid sm:grid-cols-[82px_1fr] gap-5 border border-white/12 bg-white/[0.045] p-6">
+              <div class="font-heading text-5xl font-semibold text-[#F37121]/75 leading-none">{number}</div>
+              <div>
+                <h3 class="font-heading font-semibold text-3xl tracking-[-0.03em] mb-2">{title}</h3>
+                <p class="text-[#F2EBDF]/72 leading-relaxed">{copy}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <section class="py-16 md:py-24 bg-white">
       <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p class="kicker mb-3 text-[#334D2B]">Our approach</p>
-          <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-none mb-6">Clear The Problem Brush. Keep The Land Worth Owning.</h2>
-          <p class="text-lg text-zinc-700 leading-relaxed mb-5">Good land clearing is not just running a machine until everything is gone. Northeast Texas properties need judgment: what should stay, what should go, where access should open, and how the finished property needs to function.</p>
-          <p class="text-lg text-zinc-700 leading-relaxed">We focus on rural acreage, ranches, hunting land, homesites, fence rows, trails, and overgrown lots that need a cleaner, more usable finish.</p>
+          <p class="kicker mb-4 text-[#334D2B]">Operating standards</p>
+          <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-[0.96] tracking-[-0.04em] text-[#334D2B] mb-6">The finished property should feel intentional.</h2>
+          <p class="text-lg text-[#334D2B]/72 leading-relaxed">These are the standards Sloan Property Progressions works from on rural acreage, trails, fence lines, homesites, ranch properties, hunting ground, and overgrown lots.</p>
         </div>
-        <div class="card-dark p-8 text-white">
-          <p class="kicker mb-5">Operating standards</p>
-          <div class="space-y-5">{standards.map((item, i) => <div class="flex gap-4 border-b border-white/10 pb-5 last:border-b-0"><span class="w-10 h-10 bg-[#F37121] text-[#334D2B] flex items-center justify-center font-heading font-semibold">{i + 1}</span><p class="text-zinc-200 text-lg">{item}</p></div>)}</div>
+        <div class="bg-[#F2EBDF] border border-[#334D2B]/10 p-8">
+          <div class="space-y-5">
+            {standards.map((item, i) => (
+              <div class="flex gap-4 border-b border-[#334D2B]/10 pb-5 last:border-b-0">
+                <span class="w-11 h-11 shrink-0 bg-[#F37121] text-white flex items-center justify-center font-body font-bold">{i + 1}</span>
+                <p class="text-[#334D2B]/76 text-lg leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F2EBDF]">
+      <div class="container mx-auto px-6 text-center max-w-4xl">
+        <p class="kicker mb-4">Start the next step</p>
+        <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-[0.96] tracking-[-0.04em] text-[#334D2B] mb-6">If your property feels stuck, Myles can help map the first move.</h2>
+        <p class="text-lg text-[#334D2B]/72 leading-relaxed mb-9">Send the property details, a few photos, or the rough acreage. Sloan Property Progressions will help you understand what should be cleared, what should stay, and what the project may take.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/get-a-quote" class="btn-primary">Request A Property Review</a>
+          <a href="/instant-pricing" class="inline-flex items-center justify-center px-7 py-4 border border-[#334D2B]/25 text-[#334D2B] font-body font-bold hover:bg-white transition">Use Instant Pricing</a>
         </div>
       </div>
     </section>
