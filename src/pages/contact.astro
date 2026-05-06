@@ -83,7 +83,7 @@ const services = [
         <div class="grid lg:grid-cols-[minmax(0,1fr)_380px] gap-10 lg:gap-16 items-center">
           <div class="max-w-4xl">
             <p class="kicker mb-4">DFW land clearing — 60-mile service radius</p>
-            <h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Tell Us What You Need Cleared.</h1>
+            <h1 class="font-heading font-semibold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Tell Us What You Need Cleared.</h1>
             <p class="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl">We help property owners, rural homeowners, builders, hunters, ranchers, and land investors open up overgrown ground across Northeast Texas and nearby rural communities.</p>
             <div class="mt-8 flex flex-col sm:flex-row gap-4">
               <a href={phoneHref} class="btn-primary">Call {phoneDisplay}</a>
@@ -93,11 +93,11 @@ const services = [
 
           <aside class="border border-white/10 bg-white/[0.04] p-6 md:p-8 shadow-2xl">
             <img src="/assets/spp-logo.png" alt="Sloan Property Progressions" class="h-24 w-auto mb-6" />
-            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Contact</p>
+            <p class="font-heading tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Contact</p>
             <div class="space-y-5">
               <div>
                 <p class="text-sm uppercase tracking-[0.18em] text-zinc-500 font-bold mb-1">Phone</p>
-                <a href={phoneHref} class="font-[Rajdhani] text-3xl font-bold uppercase hover:text-[#F37121] transition">{phoneDisplay}</a>
+                <a href={phoneHref} class="font-heading text-3xl font-semibold hover:text-[#F37121] transition">{phoneDisplay}</a>
               </div>
               <div>
                 <p class="text-sm uppercase tracking-[0.18em] text-zinc-500 font-bold mb-1">Email</p>
@@ -118,7 +118,7 @@ const services = [
         <aside class="card-dark text-white p-8 md:p-10 flex flex-col justify-between">
           <div>
             <p class="kicker mb-3">Fastest way to get scoped</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none mb-6">Make The Property Easy To Understand.</h2>
+            <h2 class="font-heading font-semibold text-4xl md:text-5xl leading-none mb-6">Make The Property Easy To Understand.</h2>
             <p class="text-zinc-200 text-lg leading-relaxed mb-8">A good quote starts with access, density, acreage, finish expectations, and what needs to stay. Send what you have — we can help sort out the rest.</p>
             <ul class="space-y-4">
               {checklist.map((item) => (
@@ -130,29 +130,29 @@ const services = [
             </ul>
           </div>
           <div class="mt-10 border-t border-white/10 pt-6">
-            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-2">Good fit for</p>
+            <p class="font-heading tracking-[0.2em] text-[#F37121] font-bold text-sm mb-2">Good fit for</p>
             <p class="text-zinc-300">Acreage cleanup, hunting trails, fence rows, rural homesites, small farm access, pasture edges, and wooded-property reclamation.</p>
           </div>
         </aside>
 
         <div class="bg-white border border-black/10 shadow-xl p-8 md:p-10">
           <p class="kicker mb-3 text-[#334D2B]">Start here</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none mb-5">Choose The Best Next Step.</h2>
+          <h2 class="font-heading font-semibold text-4xl md:text-5xl leading-none mb-5">Choose The Best Next Step.</h2>
           <div class="grid sm:grid-cols-2 gap-4 mb-8">
             <a href={phoneHref} class="group border border-black/10 bg-[#334D2B] text-white p-6 hover:bg-[#F37121] transition">
-              <p class="font-[Rajdhani] uppercase font-bold text-3xl leading-none mb-3">Call</p>
+              <p class="font-heading font-semibold text-3xl leading-none mb-3">Call</p>
               <p class="text-zinc-200 group-hover:text-white">Best if access, timing, or scope is complicated.</p>
               <p class="mt-4 font-bold text-xl">{phoneDisplay}</p>
             </a>
             <a href="/get-a-quote" class="group border border-black/10 bg-[#F2EBDF] p-6 hover:border-[#F37121] transition">
-              <p class="font-[Rajdhani] uppercase font-bold text-3xl leading-none mb-3">Quote</p>
+              <p class="font-heading font-semibold text-3xl leading-none mb-3">Quote</p>
               <p class="text-zinc-700">Best if you already have the address, photos, and goal.</p>
               <p class="mt-4 font-bold text-[#F37121]">Request a quote →</p>
             </a>
           </div>
 
           <div class="border-t border-black/10 pt-8">
-            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-4">Services</p>
+            <p class="font-heading tracking-[0.2em] text-[#F37121] font-bold text-sm mb-4">Services</p>
             <div class="grid sm:grid-cols-2 gap-3">
               {services.map(([service, href]) => (
                 <a href={href} class="border border-black/10 px-4 py-3 font-semibold hover:border-[#F37121] hover:text-[#F37121] transition">{service} →</a>
@@ -168,19 +168,19 @@ const services = [
         <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
           <div>
             <p class="kicker mb-3">Service area</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-5">Roughly 60 Miles Around Dallas.</h2>
+            <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-none mb-5">Roughly 60 Miles Around Dallas.</h2>
             <p class="text-lg text-zinc-200 leading-relaxed mb-8">The core service area is Northeast Texas and nearby rural communities where acreage, woods, trails, fence lines, and homesite openings are common. If the property is just outside the normal range, reach out anyway — larger jobs can make travel make sense.</p>
             <div class="grid sm:grid-cols-3 gap-4">
               <div class="border border-white/10 bg-white/[0.04] p-5">
-                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">60±</p>
+                <p class="font-heading text-4xl font-semibold text-[#F37121] leading-none">60±</p>
                 <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">mile radius</p>
               </div>
               <div class="border border-white/10 bg-white/[0.04] p-5">
-                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">12</p>
+                <p class="font-heading text-4xl font-semibold text-[#F37121] leading-none">12</p>
                 <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">county area</p>
               </div>
               <div class="border border-white/10 bg-white/[0.04] p-5">
-                <p class="font-[Rajdhani] text-4xl font-bold uppercase text-[#F37121] leading-none">DFW</p>
+                <p class="font-heading text-4xl font-semibold text-[#F37121] leading-none">DFW</p>
                 <p class="mt-2 text-sm uppercase tracking-[0.18em] text-zinc-400 font-bold">home base</p>
               </div>
             </div>
@@ -188,7 +188,7 @@ const services = [
 
           <div class="grid md:grid-cols-2 gap-5">
             <div class="bg-white text-[#334D2B] p-6 md:p-8 shadow-2xl">
-              <h3 class="font-[Rajdhani] uppercase font-bold text-3xl mb-5">Counties Served</h3>
+              <h3 class="font-heading font-semibold text-3xl mb-5">Counties Served</h3>
               <div class="grid gap-2">
                 {counties.map((county) => (
                   <span class="border border-black/10 bg-[#F2EBDF] px-3 py-2 text-sm font-semibold">{county}</span>
@@ -196,7 +196,7 @@ const services = [
               </div>
             </div>
             <div class="bg-white text-[#334D2B] p-6 md:p-8 shadow-2xl">
-              <h3 class="font-[Rajdhani] uppercase font-bold text-3xl mb-5">Cities & Areas</h3>
+              <h3 class="font-heading font-semibold text-3xl mb-5">Cities & Areas</h3>
               <div class="flex flex-wrap gap-2">
                 {cities.map((city) => (
                   <span class="bg-[#F2EBDF] border border-black/10 px-3 py-2 text-sm font-semibold">{city}</span>
@@ -214,12 +214,12 @@ const services = [
         <div class="grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
           <div>
             <p class="kicker mb-3 text-[#334D2B]">Clear scope. Clear pricing.</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none mb-5">No Mystery Day Rate Guessing.</h2>
+            <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-none mb-5">No Mystery Day Rate Guessing.</h2>
             <p class="text-lg text-zinc-700 leading-relaxed max-w-3xl">We want the scope to be obvious before equipment shows up: what gets cleared, what stays, what the finish should look like, and what access constraints could affect the work.</p>
           </div>
           <div class="bg-[#334D2B] text-white p-8 md:p-10 shadow-2xl">
-            <p class="font-[Rajdhani] uppercase tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Ready?</p>
-            <h3 class="font-[Rajdhani] uppercase font-bold text-4xl leading-none mb-5">Start With The Property.</h3>
+            <p class="font-heading tracking-[0.2em] text-[#F37121] font-bold text-sm mb-3">Ready?</p>
+            <h3 class="font-heading font-semibold text-4xl leading-none mb-5">Start With The Property.</h3>
             <p class="text-zinc-300 mb-7">Call now or request a quote and include the location, photos, acreage, and goal for the land.</p>
             <div class="flex flex-col sm:flex-row gap-3">
               <a href={phoneHref} class="btn-primary">Call {phoneDisplay}</a>

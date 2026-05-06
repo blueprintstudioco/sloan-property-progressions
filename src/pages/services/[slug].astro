@@ -201,7 +201,7 @@ const schema = {
             <span class="text-[#F37121]">{service.shortTitle}</span>
           </nav>
           {enhancement && <p class="kicker mb-4">{enhancement.eyebrow}</p>}
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-[Rajdhani] font-bold uppercase text-[#334D2B] mb-5 leading-[0.92]">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-semibold text-[#334D2B] mb-5 leading-[0.92]">
             {service.title} in Northeast Texas
           </h1>
           <p class="text-xl md:text-2xl text-[#334D2B]/75 max-w-3xl leading-relaxed">
@@ -239,7 +239,7 @@ const schema = {
             ['Selective Clearing', 'Open the land while protecting keeper trees, shade, screening, and wildlife cover.'],
           ].map(([title, copy]) => (
             <div class="border border-[#334D2B]/10 bg-[#F2EBDF] p-5 min-h-[132px]">
-              <div class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] leading-none">{title}</div>
+              <div class="font-heading text-2xl font-semibold text-[#334D2B] leading-none">{title}</div>
               <p class="mt-2 text-sm leading-relaxed text-[#334D2B]/65">{copy}</p>
             </div>
           ))}
@@ -253,7 +253,7 @@ const schema = {
           <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
             <div>
               <p class="kicker mb-3">Mulch layer matters</p>
-              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-5">The finish helps protect the soil.</h2>
+              <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#334D2B] leading-none mb-5">The finish helps protect the soil.</h2>
               <p class="text-lg text-gray-600 leading-relaxed mb-6">This page is different from a normal clearing service page because erosion control is not a separate machine pass we sell like stump grinding or demolition. It is part of doing forestry mulching correctly.</p>
               <p class="text-lg text-gray-600 leading-relaxed">When brush, saplings, and understory are mulched in place, the leftover material creates a protective ground layer. That cover helps reduce exposed dirt, soften rain impact, slow surface runoff, and keep newly opened trails, slopes, and acreage from turning into bare mud after the first storm.</p>
             </div>
@@ -265,8 +265,8 @@ const schema = {
                 ['Not engineered drainage', 'Mulch helps, but culverts, ditches, grading, and serious washouts may need a dirt-work or drainage contractor.'],
               ].map(([title, copy]) => (
                 <div class="card-light p-6 min-h-[210px]">
-                  <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
-                  <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] mb-2 leading-none">{title}</h3>
+                  <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-heading font-semibold text-xl mb-5">✓</div>
+                  <h3 class="font-heading text-2xl font-semibold text-[#334D2B] mb-2 leading-none">{title}</h3>
                   <p class="text-gray-600 leading-relaxed">{copy}</p>
                 </div>
               ))}
@@ -279,7 +279,7 @@ const schema = {
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-3xl mb-10">
             <p class="kicker mb-3">Real transformation</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-4">Unusable land becomes usable again.</h2>
+            <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#334D2B] leading-none mb-4">Unusable land becomes usable again.</h2>
             <p class="text-lg text-gray-600 leading-relaxed">Every service is easier to understand when you see the before and after: the problem area becomes accessible, visible, and useful for the next thing you need to do.</p>
           </div>
           <div class="grid md:grid-cols-3 gap-5">
@@ -288,11 +288,11 @@ const schema = {
                 <img src={proof.image} alt={proof.label} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
                 <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/70 shadow-[0_0_18px_rgba(0,0,0,0.7)]"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10"></div>
-                <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">Before</div>
-                <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">After</div>
+                <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-heading text-sm font-semibold tracking-[0.18em] text-white">Before</div>
+                <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-heading text-sm font-semibold tracking-[0.18em] text-white">After</div>
                 <figcaption class="absolute bottom-0 left-0 right-0 p-5">
                   <p class="text-xs uppercase tracking-[0.24em] text-[#F37121] font-bold mb-2">Transformation</p>
-                  <p class="font-[Rajdhani] text-2xl font-bold uppercase text-white leading-none">{proof.label}</p>
+                  <p class="font-heading text-2xl font-semibold text-white leading-none">{proof.label}</p>
                 </figcaption>
               </figure>
             ))}
@@ -307,7 +307,7 @@ const schema = {
         <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
           <div>
             <p class="kicker mb-4">Why it works</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-6">{isErosionControl ? 'Mulch in place. Protect the ground.' : 'Solve the problem. Leave usable land behind.'}</h2>
+            <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#334D2B] leading-none mb-6">{isErosionControl ? 'Mulch in place. Protect the ground.' : 'Solve the problem. Leave usable land behind.'}</h2>
             <div class="space-y-5 text-lg text-gray-700 leading-relaxed">
               {service.fullDescription.map((paragraph) => (
                 <p>{paragraph}</p>
@@ -317,8 +317,8 @@ const schema = {
           <div class="grid sm:grid-cols-2 gap-4">
             {benefitTiles.map(([title, copy]) => (
               <div class="card-light p-6 min-h-[190px]">
-                <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-[Rajdhani] font-bold text-xl mb-5">✓</div>
-                <h3 class="font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] mb-2 leading-none">{title}</h3>
+                <div class="h-11 w-11 bg-[#F37121] text-white flex items-center justify-center font-heading font-semibold text-xl mb-5">✓</div>
+                <h3 class="font-heading text-2xl font-semibold text-[#334D2B] mb-2 leading-none">{title}</h3>
                 <p class="text-gray-600 leading-relaxed">{copy}</p>
               </div>
             ))}
@@ -333,13 +333,13 @@ const schema = {
           <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
               <p class="kicker mb-4">Know before you clear</p>
-              <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase leading-none mb-5">What {service.shortTitle.toLowerCase()} is — and what it is not.</h2>
+              <h2 class="text-4xl md:text-5xl font-heading font-semibold leading-none mb-5">What {service.shortTitle.toLowerCase()} is — and what it is not.</h2>
               <p class="text-gray-300 text-lg leading-relaxed">Good clearing is not just running a machine through the woods. The right approach depends on density, soil, slope, access, keeper trees, maintenance, and what you want the land to become.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-5">
               <div class="bg-white text-[#334D2B] p-8 shadow-2xl">
                 <p class="kicker mb-3">Best fit</p>
-                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase mb-5 leading-none">When this is the right move</h3>
+                <h3 class="font-heading text-3xl font-semibold mb-5 leading-none">When this is the right move</h3>
                 <div class="space-y-4">
                   {enhancement.bestFor.map((item) => (
                     <div class="flex gap-3">
@@ -351,7 +351,7 @@ const schema = {
               </div>
               <div class="border border-white/15 bg-white/[0.055] p-8">
                 <p class="kicker mb-3">Watch-outs</p>
-                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase mb-5 leading-none">Where cheap work gets expensive</h3>
+                <h3 class="font-heading text-3xl font-semibold mb-5 leading-none">Where cheap work gets expensive</h3>
                 <div class="space-y-4">
                   {enhancement.watchOuts.map((item) => (
                     <div class="flex gap-3">
@@ -373,7 +373,7 @@ const schema = {
         <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
           <div>
             <p class="kicker mb-3">What is included</p>
-            <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#334D2B] leading-none mb-5">{isErosionControl ? 'A protective finish, not a bare scrape.' : 'A cleaner finish without piles, burns, and guessing.'}</h2>
+            <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#334D2B] leading-none mb-5">{isErosionControl ? 'A protective finish, not a bare scrape.' : 'A cleaner finish without piles, burns, and guessing.'}</h2>
             <p class="text-lg text-gray-600 leading-relaxed mb-8">Every {service.shortTitle.toLowerCase()} project is scoped around the outcome: what needs opened, what should stay, how the area will be maintained, and what finish makes sense for Northeast Texas ground.</p>
             <div class="grid sm:grid-cols-2 gap-4">
               {service.included.map((item) => (
@@ -386,7 +386,7 @@ const schema = {
           </div>
           <aside class="card-dark p-8 sticky top-28">
             <p class="kicker mb-3">Clear project pricing</p>
-            <h3 class="text-3xl font-[Rajdhani] font-bold uppercase text-white mb-4 leading-none">No hourly guessing game.</h3>
+            <h3 class="text-3xl font-heading font-semibold text-white mb-4 leading-none">No hourly guessing game.</h3>
             <p class="text-gray-300 text-lg leading-relaxed mb-6">The quote should match the scope: acreage, brush density, access, terrain, wet areas, keeper trees, and the finish you want. That is how you avoid day-rate surprises and half-finished work.</p>
             <ul class="space-y-3 text-gray-300 text-sm border-t border-white/10 pt-6">
               <li>• Property address or general location</li>
@@ -405,16 +405,16 @@ const schema = {
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-14">
           <p class="kicker mb-3">Process</p>
-          <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-white leading-none mb-4">Simple process. Big transformation.</h2>
+          <h2 class="text-4xl md:text-5xl font-heading font-semibold text-white leading-none mb-4">Simple process. Big transformation.</h2>
           <p class="text-gray-400 text-lg">A good job starts with scope and access, then ends with land you can walk, mow, hunt, fence, manage, or build toward.</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
           {service.process.map((step, index) => (
             <div class="relative border border-white/10 bg-white/[0.045] p-6 min-h-[250px]">
-              <div class="text-6xl font-[Rajdhani] font-bold uppercase text-[#F37121]/25 mb-5">
+              <div class="text-6xl font-heading font-semibold text-[#F37121]/25 mb-5">
                 {String(index + 1).padStart(2, '0')}
               </div>
-              <h3 class="text-2xl font-[Rajdhani] font-bold uppercase text-white mb-3 leading-none">{step.step}</h3>
+              <h3 class="text-2xl font-heading font-semibold text-white mb-3 leading-none">{step.step}</h3>
               <p class="text-gray-400 leading-relaxed">{step.description}</p>
             </div>
           ))}
@@ -427,7 +427,7 @@ const schema = {
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
           <p class="kicker mb-3">FAQ</p>
-          <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#1a1a1a] leading-none mb-4">{service.shortTitle} questions.</h2>
+          <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#1a1a1a] leading-none mb-4">{service.shortTitle} questions.</h2>
           <p class="text-gray-600 text-lg">The basics most Northeast Texas landowners want answered before they request a quote.</p>
         </div>
         <div class="max-w-3xl mx-auto">
@@ -444,17 +444,17 @@ const schema = {
     <!-- CTA Section -->
     <section class="py-20 bg-[#F37121] netx-grid-dark">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-[Rajdhani] font-bold uppercase text-[#1a1a1a] mb-6 leading-none">
+        <h2 class="text-4xl md:text-5xl font-heading font-semibold text-[#1a1a1a] mb-6 leading-none">
           Ready to take back your land?
         </h2>
         <p class="text-xl text-[#1a1a1a]/80 mb-8 max-w-2xl mx-auto">
           Get a clear project quote for {service.shortTitle.toLowerCase()} across Northeast Texas.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/get-a-quote" class="inline-flex items-center justify-center px-8 py-4 bg-[#111111] text-white font-[Rajdhani] font-bold uppercase tracking-wide text-lg rounded-sm hover:bg-black transition">
+          <a href="/get-a-quote" class="inline-flex items-center justify-center px-8 py-4 bg-[#111111] text-white font-heading font-semibold tracking-wide text-lg rounded-sm hover:bg-black transition">
             Request a Quote
           </a>
-          <a href="/portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-[#1a1a1a] text-[#1a1a1a] font-[Rajdhani] font-bold uppercase tracking-wide text-lg rounded-sm hover:bg-[#111111] hover:text-white transition">
+          <a href="/portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-[#1a1a1a] text-[#1a1a1a] font-heading font-semibold tracking-wide text-lg rounded-sm hover:bg-[#111111] hover:text-white transition">
             See Before &amp; After Work
           </a>
         </div>

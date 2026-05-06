@@ -27,9 +27,9 @@ export default function Header() {
           </a>
 
           <div className="hidden lg:flex items-center space-x-7">
-            <a href="/" className="text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">Home</a>
+            <a href="/" className="text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">Home</a>
             <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <button className="flex items-center text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">
+              <button className="flex items-center text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">
                 Services <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
               {servicesOpen && (
@@ -43,7 +43,7 @@ export default function Header() {
               )}
             </div>
             <div className="relative" onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}>
-              <a href="/about" className="flex items-center text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">
+              <a href="/about" className="flex items-center text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">
                 About <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${aboutOpen ? 'rotate-180' : ''}`} />
               </a>
               {aboutOpen && (
@@ -56,18 +56,18 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <a href="/portfolio" className="text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">Our Work</a>
-            <a href="/instant-pricing" className="text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">Pricing</a>
-            <a href="/contact" className="text-white hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide font-bold text-sm">Contact</a>
+            <a href="/portfolio" className="text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">Our Work</a>
+            <a href="/instant-pricing" className="text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">Pricing</a>
+            <a href="/contact" className="text-white hover:text-[#F37121] transition font-heading font-semibold tracking-[0.08em] text-sm">Contact</a>
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="/instant-pricing" className="border border-white/30 text-white px-5 py-2.5 font-bold hover:border-[#F37121] hover:text-[#F37121] transition font-[Rajdhani] uppercase tracking-wide">Instant Pricing</a>
-            <a href="/get-a-quote" className="bg-[#F37121] text-white px-5 py-2.5 font-bold hover:bg-[#ff8436] transition font-[Rajdhani] uppercase tracking-wide">Free Quote</a>
+            <a href="/instant-pricing" className="border border-white/30 text-white px-5 py-2.5 font-bold hover:border-[#F37121] hover:text-[#F37121] transition font-heading tracking-wide">Instant Pricing</a>
+            <a href="/get-a-quote" className="bg-[#F37121] text-white px-5 py-2.5 font-bold hover:bg-[#ff8436] transition font-heading tracking-wide">Free Quote</a>
           </div>
 
           <div className="flex lg:hidden items-center gap-1.5 flex-shrink-0">
-            <a href="/get-a-quote" className="bg-[#F37121] text-white px-3 py-2 font-bold text-xs sm:text-sm font-[Rajdhani] uppercase whitespace-nowrap">Quote</a>
+            <a href="/get-a-quote" className="bg-[#F37121] text-white px-3 py-2 font-bold text-xs sm:text-sm font-heading whitespace-nowrap">Quote</a>
             <button className="text-white p-1.5 sm:p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">{mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function Header() {
               <a href="/portfolio" className="text-white hover:text-[#F37121] transition font-medium py-2">Our Work</a>
               <a href="/instant-pricing" className="text-white hover:text-[#F37121] transition font-medium py-2">Instant Pricing</a>
               <a href="/contact" className="text-white hover:text-[#F37121] transition font-medium py-2">Contact</a>
-              <a href="/get-a-quote" className="block text-center bg-[#F37121] text-white px-5 py-3 font-semibold hover:bg-[#ff8436] transition font-[Rajdhani]">Get a Quote</a>
+              <a href="/get-a-quote" className="block text-center bg-[#F37121] text-white px-5 py-3 font-semibold hover:bg-[#ff8436] transition font-heading">Get a Quote</a>
             </div>
           </div>
         )}

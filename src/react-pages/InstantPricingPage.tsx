@@ -159,11 +159,11 @@ function ImageChoiceCard({
       <div className="relative h-48 overflow-hidden bg-[#334D2B] p-3">
         <img src={image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
         <div className="absolute inset-3 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-        {badge && <span className="absolute left-4 top-4 bg-[#F37121] px-3 py-1 font-[Rajdhani] text-xs font-bold uppercase tracking-[0.16em] text-white">{badge}</span>}
+        {badge && <span className="absolute left-4 top-4 bg-[#F37121] px-3 py-1 font-heading text-xs font-bold uppercase tracking-[0.16em] text-white">{badge}</span>}
         <span className={`absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border-2 text-lg font-bold ${selected ? 'border-[#F37121] bg-[#F37121] text-white' : 'border-white/60 bg-black/30 text-white'}`}>{selected ? '✓' : ''}</span>
         <div className="absolute bottom-3 left-3 right-3 p-5">
-          {eyebrow && <p className="mb-1 font-[Rajdhani] text-xs font-bold uppercase tracking-[0.18em] text-[#f1b273]">{eyebrow}</p>}
-          <h3 className="font-[Rajdhani] text-3xl font-bold uppercase leading-none text-white">{title}</h3>
+          {eyebrow && <p className="mb-1 font-heading text-xs font-bold uppercase tracking-[0.18em] text-[#f1b273]">{eyebrow}</p>}
+          <h3 className="font-heading text-3xl font-semibold leading-none text-white">{title}</h3>
         </div>
       </div>
       <div className="min-h-[124px] bg-white p-5 text-[#334D2B]/75 border-t border-[#334D2B]/10">
@@ -306,7 +306,7 @@ export default function InstantPricingPage() {
       <section className="min-h-[55vh] bg-[#334D2B] text-white flex items-center justify-center px-6">
         <div className="text-center">
           <div className="mx-auto mb-5 h-12 w-12 animate-spin rounded-full border-2 border-white/20 border-b-[#F37121]" />
-          <p className="font-[Rajdhani] uppercase tracking-[0.22em] text-[#F37121] font-bold">Loading calculator</p>
+          <p className="font-heading tracking-[0.22em] text-[#F37121] font-bold">Loading calculator</p>
         </div>
       </section>
     );
@@ -318,12 +318,12 @@ export default function InstantPricingPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl" ref={calculatorRef}>
         <div className="text-center mb-10">
           <p className="kicker mb-3">Property planning estimate</p>
-          <h1 className="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none mb-4">Map The Next Step.</h1>
+          <h1 className="font-heading font-semibold text-5xl md:text-7xl leading-none mb-4">Map The Next Step.</h1>
           <p className="mx-auto max-w-2xl text-lg text-[#334D2B]/75">Get a fast ballpark for forestry mulching or trail access, then confirm the final scope around access, keeper trees, finish expectations, and the property’s next use.</p>
         </div>
 
         <div className="mb-8">
-          <div className="mb-2 flex justify-between font-[Rajdhani] text-sm font-bold uppercase tracking-[0.16em] text-zinc-600">
+          <div className="mb-2 flex justify-between font-heading text-sm font-semibold tracking-[0.16em] text-zinc-600">
             <span>Step {currentStepIndex + 1} of {stepLabels.length}</span>
             <span>{Math.round(((currentStepIndex + 1) / stepLabels.length) * 100)}% Complete</span>
           </div>
@@ -332,7 +332,7 @@ export default function InstantPricingPage() {
           </div>
           <div className="mt-4 grid grid-cols-3 gap-2 md:grid-cols-6">
             {stepLabels.map((item, index) => (
-              <div key={item.id} className={`border px-2 py-2 text-center font-[Rajdhani] text-xs font-bold uppercase tracking-wide ${index <= currentStepIndex ? 'border-[#334D2B] bg-[#334D2B] text-white' : 'border-black/10 bg-white text-zinc-500'}`}>
+              <div key={item.id} className={`border px-2 py-2 text-center font-heading text-xs font-bold uppercase tracking-wide ${index <= currentStepIndex ? 'border-[#334D2B] bg-[#334D2B] text-white' : 'border-black/10 bg-white text-zinc-500'}`}>
                 {item.label}
               </div>
             ))}
@@ -345,7 +345,7 @@ export default function InstantPricingPage() {
           <div className="space-y-6">
             <div className="text-center">
               <p className="kicker mb-2">Choose a pathway</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">What is the next step?</h2>
+              <h2 className="font-heading text-4xl font-semibold md:text-5xl">What is the next step?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {serviceCards.map((card) => (
@@ -353,7 +353,7 @@ export default function InstantPricingPage() {
               ))}
             </div>
             <div className="flex justify-end">
-              <button type="button" onClick={() => goToStep('amount')} className="bg-[#F37121] px-8 py-4 font-[Rajdhani] text-xl font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
+              <button type="button" onClick={() => goToStep('amount')} className="bg-[#F37121] px-8 py-4 font-heading text-xl font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
             </div>
           </div>
         )}
@@ -361,11 +361,11 @@ export default function InstantPricingPage() {
         {step === 'amount' && selectedService && (
           <div className="mx-auto max-w-3xl bg-white p-6 shadow-xl md:p-8">
             <p className="kicker mb-2">Property measure</p>
-            <h2 className="mb-4 font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">{selectedService.unit === 'linear_feet' ? 'How long is the trail?' : 'How many acres?'}</h2>
+            <h2 className="mb-4 font-heading text-4xl font-semibold md:text-5xl">{selectedService.unit === 'linear_feet' ? 'How long is the trail?' : 'How many acres?'}</h2>
             <input className="w-full border border-black/20 bg-[#f8f1e4] px-4 py-5 text-2xl font-semibold focus:outline-none focus:ring-2 focus:ring-[#F37121]" type="number" min={selectedService.unit === 'linear_feet' ? '25' : '0.25'} step={selectedService.unit === 'linear_feet' ? '25' : '0.25'} value={quantity} onChange={(event) => setQuantity(event.target.value)} placeholder={selectedService.unit === 'linear_feet' ? 'Example: 800' : 'Example: 2.5'} />
             <p className="mt-3 text-zinc-600">{selectedService.unit === 'linear_feet' ? 'Enter total linear feet for a typical 10-foot-wide trail.' : 'Enter the approximate acreage. Small jobs may be subject to minimum pricing.'}</p>
             <div className="mt-5">
-              <p className="mb-2 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.16em] text-zinc-600">
+              <p className="mb-2 font-heading text-sm font-semibold tracking-[0.16em] text-zinc-600">
                 {selectedService.unit === 'linear_feet' ? 'Common trail lengths' : 'Common acreage'}
               </p>
               <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
@@ -374,7 +374,7 @@ export default function InstantPricingPage() {
                     key={option}
                     type="button"
                     onClick={() => setQuantity(option)}
-                    className={`border px-3 py-3 font-[Rajdhani] text-lg font-bold uppercase transition ${quantity === option ? 'border-[#F37121] bg-[#334D2B] text-white' : 'border-black/10 bg-[#f8f1e4] text-[#334D2B] hover:border-[#F37121]'}`}
+                    className={`border px-3 py-3 font-heading text-lg font-bold uppercase transition ${quantity === option ? 'border-[#F37121] bg-[#334D2B] text-white' : 'border-black/10 bg-[#f8f1e4] text-[#334D2B] hover:border-[#F37121]'}`}
                   >
                     {selectedService.unit === 'linear_feet' ? `${Number(option).toLocaleString()} ft` : `${option} ac`}
                   </button>
@@ -382,8 +382,8 @@ export default function InstantPricingPage() {
               </div>
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <button type="button" onClick={() => goToStep('service')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
-              <button type="button" onClick={() => validateAmount() && goToStep('density')} className="flex-1 bg-[#F37121] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
+              <button type="button" onClick={() => goToStep('service')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
+              <button type="button" onClick={() => validateAmount() && goToStep('density')} className="flex-1 bg-[#F37121] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
             </div>
           </div>
         )}
@@ -392,7 +392,7 @@ export default function InstantPricingPage() {
           <div className="space-y-6">
             <div className="text-center">
               <p className="kicker mb-2">Current condition</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">How much resistance is there?</h2>
+              <h2 className="font-heading text-4xl font-semibold md:text-5xl">How much resistance is there?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {densityCards.map((card) => (
@@ -400,8 +400,8 @@ export default function InstantPricingPage() {
               ))}
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <button type="button" onClick={() => goToStep('amount')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
-              <button type="button" onClick={() => goToStep('terrain')} className="flex-1 bg-[#F37121] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
+              <button type="button" onClick={() => goToStep('amount')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
+              <button type="button" onClick={() => goToStep('terrain')} className="flex-1 bg-[#F37121] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue</button>
             </div>
           </div>
         )}
@@ -410,7 +410,7 @@ export default function InstantPricingPage() {
           <div className="space-y-6">
             <div className="text-center">
               <p className="kicker mb-2">Ground conditions</p>
-              <h2 className="font-[Rajdhani] text-4xl font-bold uppercase md:text-5xl">How does the property lay?</h2>
+              <h2 className="font-heading text-4xl font-semibold md:text-5xl">How does the property lay?</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {terrainCards.map((card) => (
@@ -418,8 +418,8 @@ export default function InstantPricingPage() {
               ))}
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <button type="button" onClick={() => goToStep('density')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
-              <button type="button" onClick={() => goToStep('contact')} className="flex-1 bg-[#F37121] px-8 py-4 font-[Rajdhani] text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue To Estimate</button>
+              <button type="button" onClick={() => goToStep('density')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide transition hover:bg-[#334D2B] hover:text-white">Back</button>
+              <button type="button" onClick={() => goToStep('contact')} className="flex-1 bg-[#F37121] px-8 py-4 font-heading text-lg font-bold uppercase tracking-wide text-white transition hover:bg-[#ff8436]">Continue To Estimate</button>
             </div>
           </div>
         )}
@@ -428,7 +428,7 @@ export default function InstantPricingPage() {
           <form onSubmit={handleContactSubmit} className="mx-auto max-w-3xl bg-white border border-black/10 shadow-xl p-6 md:p-8 space-y-6">
             <div>
               <p className="kicker mb-2">Save the estimate</p>
-              <h2 className="font-[Rajdhani] uppercase font-bold text-4xl mb-2">Where should the plan go?</h2>
+              <h2 className="font-heading font-semibold text-4xl mb-2">Where should the plan go?</h2>
               <p className="text-[#334D2B]/75">This gives the operator enough context to confirm the property, access, and final scope.</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -441,8 +441,8 @@ export default function InstantPricingPage() {
               <span className="font-semibold text-white">Summary:</span> {selectedService?.label} • {formatUnit(selectedService, Number.parseFloat(quantity))} • {terrainCards.find((card) => card.key === terrain)?.label}
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <button type="button" onClick={() => goToStep('terrain')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">Back</button>
-              <button type="submit" disabled={submitting} className="flex-1 bg-[#F37121] text-white px-8 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition disabled:opacity-60">{submitting ? 'Calculating…' : 'Show My Estimate'}</button>
+              <button type="button" onClick={() => goToStep('terrain')} className="flex-1 border-2 border-[#334D2B] px-8 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">Back</button>
+              <button type="submit" disabled={submitting} className="flex-1 bg-[#F37121] text-white px-8 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition disabled:opacity-60">{submitting ? 'Calculating…' : 'Show My Estimate'}</button>
             </div>
             <p className="text-xs text-zinc-500 text-center">By submitting, you consent to being contacted about this land clearing project. No spam.</p>
           </form>
@@ -452,7 +452,7 @@ export default function InstantPricingPage() {
           <div className="mx-auto max-w-3xl bg-white border border-black/10 shadow-xl p-6 md:p-8">
             <div className="text-center border-b border-black/10 pb-8 mb-6">
               <p className="kicker mb-3">Your planning estimate</p>
-              <div className="font-[Rajdhani] font-bold text-6xl md:text-8xl text-[#F37121] leading-none">{estimate.totalFormatted}</div>
+              <div className="font-heading font-semibold text-6xl md:text-8xl text-[#F37121] leading-none">{estimate.totalFormatted}</div>
               <p className="mt-3 text-zinc-600">for {formatUnit(selectedService, selectedService?.unit === 'linear_feet' ? Number.parseFloat(quantity) : estimate.totalAcres)}</p>
             </div>
 
@@ -470,8 +470,8 @@ export default function InstantPricingPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3">
-              <a href="/get-a-quote" className="text-center bg-[#F37121] text-white px-8 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition">Request Final Quote</a>
-              <button onClick={startOver} className="border-2 border-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">Price Another Project</button>
+              <a href="/get-a-quote" className="text-center bg-[#F37121] text-white px-8 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition">Request Final Quote</a>
+              <button onClick={startOver} className="border-2 border-[#334D2B] px-8 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">Price Another Project</button>
             </div>
           </div>
         )}

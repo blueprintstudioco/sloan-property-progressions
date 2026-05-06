@@ -96,11 +96,11 @@ const totalProofs = proofSections.reduce((count, section) => count + section.ite
         <p class="kicker mb-4">Our work</p>
         <div class="grid lg:grid-cols-[minmax(0,1fr)_280px] gap-10 items-end">
           <div>
-            <h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Before / After Land Clearing.</h1>
+            <h1 class="font-heading font-semibold text-5xl md:text-7xl lg:text-8xl leading-[0.9] mb-6">Before / After Land Clearing.</h1>
             <p class="text-xl md:text-2xl text-white/75 max-w-3xl leading-relaxed">The point is simple: make overgrown property easier to see, walk, fence, hunt, maintain, or build on. Here are the service-specific transformations.</p>
           </div>
           <div class="border border-white/10 bg-white/[0.04] p-6 shadow-2xl">
-            <div class="font-[Rajdhani] text-6xl font-bold uppercase text-[#F37121] leading-none">{totalProofs}</div>
+            <div class="font-heading text-6xl font-semibold text-[#F37121] leading-none">{totalProofs}</div>
             <p class="mt-2 text-sm uppercase tracking-[0.2em] text-[#F2EBDF] font-bold">Proof images</p>
             <p class="mt-3 text-zinc-400 text-sm leading-relaxed">Grouped by the same service pages customers use to understand the work.</p>
           </div>
@@ -112,7 +112,7 @@ const totalProofs = proofSections.reduce((count, section) => count + section.ite
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 overflow-x-auto">
         <div class="flex gap-3 min-w-max">
           {proofSections.map((section) => (
-            <a href={`#${section.href.split('/').pop()}`} class="border border-black/10 bg-white px-4 py-2 font-[Rajdhani] text-sm font-bold uppercase tracking-wide text-[#111111] hover:bg-[#F37121] hover:text-white transition">{section.title}</a>
+            <a href={`#${section.href.split('/').pop()}`} class="border border-black/10 bg-white px-4 py-2 font-heading text-sm font-semibold tracking-wide text-[#111111] hover:bg-[#F37121] hover:text-white transition">{section.title}</a>
           ))}
         </div>
       </div>
@@ -125,10 +125,10 @@ const totalProofs = proofSections.reduce((count, section) => count + section.ite
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
               <div class="max-w-3xl">
                 <p class="kicker mb-3">{section.eyebrow}</p>
-                <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">{section.title}</h2>
+                <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-none">{section.title}</h2>
                 <p class="mt-4 text-lg text-gray-700 leading-relaxed">{section.intro}</p>
               </div>
-              <a href={section.href} class="inline-flex items-center justify-center border border-black/20 bg-white px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide hover:bg-[#334D2B] hover:text-white transition">View Service →</a>
+              <a href={section.href} class="inline-flex items-center justify-center border border-black/20 bg-white px-6 py-3 font-heading font-semibold tracking-wide hover:bg-[#334D2B] hover:text-white transition">View Service →</a>
             </div>
 
             <div class="grid md:grid-cols-3 gap-5">
@@ -137,11 +137,11 @@ const totalProofs = proofSections.reduce((count, section) => count + section.ite
                   <img src={item.image} alt={`${item.label} before and after`} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading={index === 0 ? 'eager' : 'lazy'} />
                   <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/70 shadow-[0_0_18px_rgba(0,0,0,0.7)]"></div>
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/10"></div>
-                  <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">Before</div>
-                  <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-white">After</div>
+                  <div class="absolute left-4 top-4 bg-black/75 px-3 py-1.5 font-heading text-sm font-semibold tracking-[0.18em] text-white">Before</div>
+                  <div class="absolute right-4 top-4 bg-[#F37121] px-3 py-1.5 font-heading text-sm font-semibold tracking-[0.18em] text-white">After</div>
                   <figcaption class="absolute bottom-0 left-0 right-0 p-5">
                     <p class="text-xs uppercase tracking-[0.24em] text-[#F37121] font-bold mb-2">Transformation</p>
-                    <p class="font-[Rajdhani] text-2xl font-bold uppercase text-white leading-none">{item.label}</p>
+                    <p class="font-heading text-2xl font-semibold text-white leading-none">{item.label}</p>
                   </figcaption>
                 </figure>
               ))}
@@ -156,10 +156,10 @@ const totalProofs = proofSections.reduce((count, section) => count + section.ite
         <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
             <p class="kicker mb-3">Ready to see your property like this?</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-6xl leading-none">Send the property. Get a clear scope.</h2>
+            <h2 class="font-heading font-semibold text-4xl md:text-6xl leading-none">Send the property. Get a clear scope.</h2>
             <p class="mt-4 text-lg text-zinc-300 max-w-2xl">Tell us what the land needs to become: trail access, fence line, homesite, acreage reset, brush clearing, or forestry mulching.</p>
           </div>
-          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#F37121] text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#ff8436] transition">Request a Quote</a>
+          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#F37121] text-white px-8 py-4 font-heading font-semibold text-xl tracking-wide hover:bg-[#ff8436] transition">Request a Quote</a>
         </div>
       </div>
     </section>

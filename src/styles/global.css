@@ -4,8 +4,8 @@
   --color-primary: #F37121;
   --color-secondary: #334D2B;
   --color-muted: #F2EBDF;
-  --font-family-heading: 'Rajdhani', sans-serif;
-  --font-family-body: 'Inter', sans-serif;
+  --font-family-heading: 'Fraunces', Georgia, serif;
+  --font-family-body: 'Source Sans 3', system-ui, sans-serif;
 }
 
 /* Base styles */
@@ -33,7 +33,8 @@ main {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.035em;
 }
 
 /* Utility classes */
@@ -61,10 +62,9 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-primary);
   color: #334D2B;
   font-family: var(--font-family-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   border-radius: 0.125rem;
   transition: all 0.2s;
   text-decoration: none;
@@ -85,10 +85,9 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   border: 2px solid rgba(255,255,255,0.75);
   font-family: var(--font-family-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   border-radius: 0.125rem;
   transition: all 0.2s;
   text-decoration: none;
@@ -136,9 +135,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .kicker {
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-body);
   text-transform: uppercase;
-  letter-spacing: .28em;
+  letter-spacing: .22em;
   color: var(--color-primary);
   font-weight: 700;
 }

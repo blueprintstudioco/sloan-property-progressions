@@ -16,14 +16,14 @@ const services = [
         <div class="mb-5">
           <img src="/assets/spp-logo.png" alt="Sloan Property Progressions" class="h-16 md:h-20 w-auto max-w-xs object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]" />
         </div>
-        <p class="text-[#F37121] font-[Rajdhani] text-xl font-bold uppercase tracking-wide mb-4">Progress Your Property.</p>
+        <p class="text-[#F37121] font-heading text-xl font-bold uppercase tracking-wide mb-4">Progress Your Property.</p>
         <p class="text-gray-400 max-w-xl">
           Forestry mulching, brush clearing, trail cutting, fence-line cleanup, and land prep for acreage owners across Northeast Texas.
         </p>
       </div>
 
       <div>
-        <h3 class="text-lg font-[Rajdhani] font-bold uppercase tracking-wide mb-4">Services</h3>
+        <h3 class="text-lg font-heading font-semibold tracking-wide mb-4">Services</h3>
         <ul class="space-y-2">
           {services.map((service) => (
             <li><a href={service.href} class="text-gray-400 hover:text-[#F37121] transition text-sm">{service.name}</a></li>
@@ -32,7 +32,7 @@ const services = [
       </div>
 
       <div>
-        <h3 class="text-lg font-[Rajdhani] font-bold uppercase tracking-wide mb-4">Contact</h3>
+        <h3 class="text-lg font-heading font-semibold tracking-wide mb-4">Contact</h3>
         <div class="space-y-3 text-sm text-gray-400">
           <p><span class="block text-white font-medium">Service Area</span>Northeast Texas acreage, ranch, and rural property work</p>
           <p><span class="block text-white font-medium">Quotes</span><a href="/get-a-quote" class="hover:text-[#F37121] transition">Request a project quote</a></p>

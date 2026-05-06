@@ -99,7 +99,7 @@ const schema = {
         <div class="grid lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,0.72fr)] gap-12 lg:gap-16 items-center">
           <div>
             <p class="kicker mb-5">Rural property progression</p>
-            <h1 class="font-[Rajdhani] font-bold uppercase leading-[0.88] tracking-tight text-[3.45rem] min-[420px]:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#334D2B]">
+            <h1 class="font-heading font-semibold leading-[0.88] tracking-tight text-[3.45rem] min-[420px]:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#334D2B]">
               Open The Land.<br />
               <span class="text-[#F37121]">Keep Its Character.</span>
             </h1>
@@ -107,8 +107,8 @@ const schema = {
               Selective forestry mulching, trails, fence-line access, and acreage cleanup for landowners who want progress — not a property scraped bare.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
-              <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-[#F2EBDF] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#1E2A1B] transition">Plan My Property</a>
-              <a href="/instant-pricing" class="inline-flex items-center justify-center border-2 border-[#F37121] text-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#F37121] hover:text-white transition">Instant Pricing</a>
+              <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-[#F2EBDF] px-8 py-4 font-heading font-semibold text-xl tracking-wide hover:bg-[#1E2A1B] transition">Plan My Property</a>
+              <a href="/instant-pricing" class="inline-flex items-center justify-center border-2 border-[#F37121] text-[#334D2B] px-8 py-4 font-heading font-semibold text-xl tracking-wide hover:bg-[#F37121] hover:text-white transition">Instant Pricing</a>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ const schema = {
                 <div class="flex items-start gap-4">
                   <img src="/assets/spp-emblem.png" alt="" class="h-14 w-14 object-contain" loading="lazy" />
                   <div>
-                    <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-[#F37121]">Property note</p>
+                    <p class="font-heading text-sm font-semibold tracking-[0.18em] text-[#F37121]">Property note</p>
                     <p class="mt-1 text-lg font-semibold text-[#334D2B] leading-snug">The goal is usable land that still feels like your land.</p>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const schema = {
         <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
           <div class="sticky top-28">
             <p class="kicker mb-3">Three ways land gets stuck</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Every Property Has A Next Step.</h2>
+            <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none text-[#334D2B]">Every Property Has A Next Step.</h2>
             <p class="mt-5 text-lg text-[#334D2B]/75 leading-relaxed">Some land needs access. Some needs a reset. Some needs preparation for what comes next. The right scope starts with the outcome.</p>
           </div>
           <div class="space-y-6">
@@ -147,10 +147,10 @@ const schema = {
                   <div class="absolute inset-0 bg-[#334D2B]/10"></div>
                 </div>
                 <div class="p-6 md:p-8 flex flex-col justify-center">
-                  <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.2em] text-[#F37121]">{path.eyebrow}</p>
-                  <h3 class="mt-2 font-[Rajdhani] text-4xl font-bold uppercase text-[#334D2B]">{path.title}</h3>
+                  <p class="font-heading text-sm font-semibold tracking-[0.2em] text-[#F37121]">{path.eyebrow}</p>
+                  <h3 class="mt-2 font-heading text-4xl font-semibold text-[#334D2B]">{path.title}</h3>
                   <p class="mt-3 text-[#334D2B]/75 leading-relaxed">{path.copy}</p>
-                  <span class="mt-5 font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B] group-hover:text-[#F37121]">Explore this path →</span>
+                  <span class="mt-5 font-heading font-semibold tracking-wide text-[#334D2B] group-hover:text-[#F37121]">Explore this path →</span>
                 </div>
               </a>
             ))}
@@ -164,13 +164,13 @@ const schema = {
       <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-12">
           <p class="kicker mb-3">The Sloan method</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">Clear With A Plan.</h2>
+          <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none">Clear With A Plan.</h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/15 border border-white/15">
           {planningSteps.map(([num, title, copy]) => (
             <div class="bg-[#334D2B]/95 p-7 min-h-[280px]">
-              <div class="font-[Rajdhani] text-5xl font-bold text-[#F37121]">{num}</div>
-              <h3 class="mt-8 font-[Rajdhani] text-3xl font-bold uppercase leading-none">{title}</h3>
+              <div class="font-heading text-5xl font-bold text-[#F37121]">{num}</div>
+              <h3 class="mt-8 font-heading text-3xl font-semibold leading-none">{title}</h3>
               <p class="mt-4 text-[#F2EBDF]/75 leading-relaxed">{copy}</p>
             </div>
           ))}
@@ -187,11 +187,11 @@ const schema = {
           </div>
           <div class="order-1 lg:order-2">
             <p class="kicker mb-3">Before the quote</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">We Decide What Should Stay.</h2>
+            <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none text-[#334D2B]">We Decide What Should Stay.</h2>
             <p class="mt-6 text-lg text-[#334D2B]/75 leading-relaxed">Before clearing starts, the plan should identify what is worth protecting, what needs opened, and how the finished property should function when the work is done.</p>
             <div class="mt-8 grid sm:grid-cols-2 gap-4">
               {['Keeper trees', 'Property lines', 'Trails & access', 'Future maintenance'].map((item) => (
-                <div class="border border-[#334D2B]/15 bg-white p-5 font-[Rajdhani] text-2xl font-bold uppercase text-[#334D2B] shadow-sm">{item}</div>
+                <div class="border border-[#334D2B]/15 bg-white p-5 font-heading text-2xl font-semibold text-[#334D2B] shadow-sm">{item}</div>
               ))}
             </div>
           </div>
@@ -204,16 +204,16 @@ const schema = {
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <div class="max-w-3xl">
             <p class="kicker mb-3">Services</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Practical Work. Planned Finish.</h2>
+            <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none text-[#334D2B]">Practical Work. Planned Finish.</h2>
           </div>
-          <a href="/services/forestry-mulching" class="inline-flex items-center justify-center border-2 border-[#334D2B] px-6 py-3 font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B] hover:bg-[#334D2B] hover:text-white transition">View services</a>
+          <a href="/services/forestry-mulching" class="inline-flex items-center justify-center border-2 border-[#334D2B] px-6 py-3 font-heading font-semibold tracking-wide text-[#334D2B] hover:bg-[#334D2B] hover:text-white transition">View services</a>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#334D2B]/15 border border-[#334D2B]/15">
           {services.map((service) => (
             <a href={service.href} class="group bg-white p-7 min-h-[230px] hover:bg-[#F2EBDF] transition">
-              <h3 class="font-[Rajdhani] text-3xl font-bold uppercase text-[#334D2B] group-hover:text-[#F37121] transition">{service.title}</h3>
+              <h3 class="font-heading text-3xl font-semibold text-[#334D2B] group-hover:text-[#F37121] transition">{service.title}</h3>
               <p class="mt-4 text-[#334D2B]/70 leading-relaxed">{service.copy}</p>
-              <span class="mt-8 inline-block font-[Rajdhani] font-bold uppercase tracking-wide text-[#334D2B]">Learn more →</span>
+              <span class="mt-8 inline-block font-heading font-semibold tracking-wide text-[#334D2B]">Learn more →</span>
             </a>
           ))}
         </div>
@@ -228,7 +228,7 @@ const schema = {
           <img src="/images/netx/certified/brushworks-certified.png" alt="Brushworks Certified Process Operator badge" class="mx-auto w-full max-w-[190px] drop-shadow-2xl" loading="lazy" />
           <div>
             <p class="kicker mb-3">Certified Process Operator</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-4xl md:text-5xl leading-none">Backed By The Brushworks Standard.</h2>
+            <h2 class="font-heading font-semibold text-4xl md:text-5xl leading-none">Backed By The Brushworks Standard.</h2>
             <p class="mt-4 text-lg text-zinc-300 leading-relaxed max-w-3xl">Independent local operator. Reviewed for equipment fit, clear scope, communication, and the ability to deliver cleaner land-clearing outcomes.</p>
             <div class="mt-5 flex flex-wrap gap-3 text-sm font-semibold text-zinc-300">
               <span class="border border-white/10 bg-black/25 px-3 py-2">Clear scope</span>
@@ -238,8 +238,8 @@ const schema = {
             </div>
           </div>
           <div class="flex flex-col gap-3 lg:min-w-[240px]">
-            <a href="https://www.brushworksco.com/certified-operators/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#F37121] text-white px-6 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition">What Certified Means</a>
-            <a href="/get-a-quote" class="inline-flex items-center justify-center border-2 border-white/70 text-white px-6 py-4 font-[Rajdhani] font-bold text-lg uppercase tracking-wide hover:bg-white hover:text-[#334D2B] transition">Get A Quote</a>
+            <a href="https://www.brushworksco.com/certified-operators/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#F37121] text-white px-6 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-[#ff8436] transition">What Certified Means</a>
+            <a href="/get-a-quote" class="inline-flex items-center justify-center border-2 border-white/70 text-white px-6 py-4 font-heading font-semibold text-lg uppercase tracking-wide hover:bg-white hover:text-[#334D2B] transition">Get A Quote</a>
           </div>
         </div>
       </div>
@@ -249,7 +249,7 @@ const schema = {
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-12">
           <p class="kicker mb-3">Field notes</p>
-          <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">Proof, Presented Differently.</h2>
+          <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none text-[#334D2B]">Proof, Presented Differently.</h2>
           <p class="mt-5 text-lg text-[#334D2B]/75">A good clearing project is not just before and after. It is what changed, why it mattered, and how the land can be maintained afterward.</p>
         </div>
         <div class="grid lg:grid-cols-3 gap-6">
@@ -257,7 +257,7 @@ const schema = {
             <article class="bg-white border border-[#334D2B]/10 shadow-lg overflow-hidden">
               <img src={note.image} alt="" class="h-64 w-full object-cover" loading="lazy" />
               <div class="p-6">
-                <h3 class="font-[Rajdhani] text-3xl font-bold uppercase leading-none text-[#334D2B]">{note.title}</h3>
+                <h3 class="font-heading text-3xl font-semibold leading-none text-[#334D2B]">{note.title}</h3>
                 <p class="mt-4 text-[#334D2B]/70 leading-relaxed">{note.copy}</p>
               </div>
             </article>
@@ -271,7 +271,7 @@ const schema = {
         <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-start">
           <div>
             <p class="kicker mb-3">Video library</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">Watch The Thinking, Not Just The Machine.</h2>
+            <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none">Watch The Thinking, Not Just The Machine.</h2>
             <p class="mt-5 text-[#F2EBDF]/70 text-lg leading-relaxed">Short field videos and process notes help landowners understand how a professional clearing project is scoped, priced, and finished.</p>
           </div>
           <div class="grid gap-5">
@@ -282,8 +282,8 @@ const schema = {
                   <div class="absolute inset-0 flex items-center justify-center"><span class="flex h-16 w-16 items-center justify-center rounded-full bg-[#F37121] text-2xl text-white shadow-xl">▶</span></div>
                 </div>
                 <div class="p-6 md:p-8">
-                  <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.18em] text-[#F37121]">Field video</p>
-                  <h3 class="mt-2 font-[Rajdhani] text-3xl font-bold uppercase leading-none text-white">{video.title}</h3>
+                  <p class="font-heading text-sm font-semibold tracking-[0.18em] text-[#F37121]">Field video</p>
+                  <h3 class="mt-2 font-heading text-3xl font-semibold leading-none text-white">{video.title}</h3>
                   <p class="mt-4 text-[#F2EBDF]/70 leading-relaxed">{video.copy}</p>
                 </div>
               </button>
@@ -298,7 +298,7 @@ const schema = {
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <p class="kicker mb-3">Questions</p>
-            <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none text-[#334D2B]">What Landowners Ask First.</h2>
+            <h2 class="font-heading font-semibold text-5xl md:text-7xl leading-none text-[#334D2B]">What Landowners Ask First.</h2>
           </div>
           <FAQ items={faqItems} client:load />
         </div>
@@ -308,11 +308,11 @@ const schema = {
     <section class="py-16 md:py-24 bg-[#F37121] text-white relative overflow-hidden">
       <div class="absolute inset-0 netx-grid-dark opacity-20"></div>
       <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="font-[Rajdhani] text-sm font-bold uppercase tracking-[0.22em] text-white/80 mb-4">Start with the next step</p>
-        <h2 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-8xl leading-none max-w-4xl mx-auto">Tell Us What The Property Needs To Become.</h2>
+        <p class="font-heading text-sm font-semibold tracking-[0.22em] text-white/80 mb-4">Start with the next step</p>
+        <h2 class="font-heading font-semibold text-5xl md:text-8xl leading-none max-w-4xl mx-auto">Tell Us What The Property Needs To Become.</h2>
         <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-white px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#1E2A1B] transition">Get a Quote</a>
-          <a href="/instant-pricing" class="inline-flex items-center justify-center bg-white text-[#334D2B] px-8 py-4 font-[Rajdhani] font-bold text-xl uppercase tracking-wide hover:bg-[#F2EBDF] transition">Try Instant Pricing</a>
+          <a href="/get-a-quote" class="inline-flex items-center justify-center bg-[#334D2B] text-white px-8 py-4 font-heading font-semibold text-xl tracking-wide hover:bg-[#1E2A1B] transition">Get a Quote</a>
+          <a href="/instant-pricing" class="inline-flex items-center justify-center bg-white text-[#334D2B] px-8 py-4 font-heading font-semibold text-xl tracking-wide hover:bg-[#F2EBDF] transition">Try Instant Pricing</a>
         </div>
       </div>
     </section>

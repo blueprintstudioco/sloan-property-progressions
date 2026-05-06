@@ -13,8 +13,8 @@ const notes = [
 <Layout title="Reviews | Sloan Property Progressions" description="Land clearing proof, before and after work, and customer expectations for Sloan Property Progressions.">
   <Header client:load />
   <main class="pt-20 bg-[#F2EBDF]">
-    <section class="page-hero py-20 md:py-28"><div class="container mx-auto px-6"><p class="kicker mb-4">Proof & expectations</p><h1 class="font-[Rajdhani] uppercase font-bold text-5xl md:text-7xl leading-none">What Good Clearing Should Feel Like</h1><p class="text-xl text-white/75 max-w-3xl mt-6">Real reviews will be added as local jobs are completed. Until then, these are the standards for every job.</p></div></section>
-    <section class="py-16 md:py-24"><div class="container mx-auto px-6 grid md:grid-cols-3 gap-6">{notes.map(n => <div class="card-light p-7"><h2 class="font-[Rajdhani] uppercase font-bold text-3xl mb-3">{n.title}</h2><p class="text-zinc-700 leading-relaxed">{n.text}</p></div>)}</div></section>
+    <section class="page-hero py-20 md:py-28"><div class="container mx-auto px-6"><p class="kicker mb-4">Proof & expectations</p><h1 class="font-heading font-semibold text-5xl md:text-7xl leading-none">What Good Clearing Should Feel Like</h1><p class="text-xl text-white/75 max-w-3xl mt-6">Real reviews will be added as local jobs are completed. Until then, these are the standards for every job.</p></div></section>
+    <section class="py-16 md:py-24"><div class="container mx-auto px-6 grid md:grid-cols-3 gap-6">{notes.map(n => <div class="card-light p-7"><h2 class="font-heading font-semibold text-3xl mb-3">{n.title}</h2><p class="text-zinc-700 leading-relaxed">{n.text}</p></div>)}</div></section>
   </main>
   <Footer />
 </Layout>

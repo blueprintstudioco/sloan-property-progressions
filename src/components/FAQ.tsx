@@ -25,10 +25,10 @@ export default function FAQ({ items }: FAQProps) {
             className="group w-full flex items-start justify-between gap-5 p-5 md:p-6 text-left bg-white hover:bg-[#f8f0e2] transition"
           >
             <span className="flex gap-4">
-              <span className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center bg-[#334D2B] font-[Rajdhani] text-sm font-bold text-[#F37121]">
+              <span className="hidden sm:flex h-9 w-9 shrink-0 items-center justify-center bg-[#334D2B] font-heading text-sm font-bold text-[#F37121]">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="font-[Rajdhani] font-bold uppercase leading-none text-2xl md:text-3xl text-[#334D2B] group-hover:text-[#F37121] transition">
+              <span className="font-heading font-semibold leading-none text-2xl md:text-3xl text-[#334D2B] group-hover:text-[#F37121] transition">
                 {item.question}
               </span>
             </span>
